@@ -46,11 +46,11 @@ function Search() {
 				<h2>Results</h2>
 				<div>{artList.length > 0 ? `yes, art ${artList.length}` : "No art found."}</div>
 
-				<ul id='searchAnswer'>
+				<ul className="resultImages">
 					{artList.map((artwork) => (
-						<li className='answers' key={artwork.id}>
+						<li className='thumbnails' key={artwork.id}>
 							<img
-								src={`https://www.artic.edu/iiif/2/${artwork.image_id}/full/843,/0/default.jpg`}
+								src={aicImage(artwork.image_id)}
 							/>
 						</li>
 					))}

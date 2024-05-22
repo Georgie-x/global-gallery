@@ -1,14 +1,23 @@
+import { Link } from "react-router-dom"
+
 function Nav() {
 	return (
-		<nav className='menu'>
-			<label htmlFor='menu-select'>&#x2630;</label>
+		<nav>
+			<ul className='menu'>
+				<li>
+					<Link to='/home'>Home</Link>
+				</li>
+				<li>
+					<Link to='/search'>Search</Link>
+				</li>
+				<li>
+					<Link to='/gallery'>Gallery</Link>
+				</li>
 
-			<select name='page' id='menu-select'>
-				<option value='home'>Home</option>
-				<option value='search'>Search</option>
-				<option value='gallery'>Gallery</option>
-				<option value='exhibition'>Exhibition</option>
-			</select>
+				<li>
+					<Link to='/exhibition'>Exhibition</Link>
+				</li>
+			</ul>
 		</nav>
 	)
 }
