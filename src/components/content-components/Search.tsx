@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 import axios from "axios"
-import { aicSearch, aicImage } from "../../utils"
+import { aicSearch, aicImage, aicDetails } from "../../utils"
 
 interface artList {
 	id: string
@@ -44,19 +44,20 @@ function Search() {
 					<input type='text' id='keywordSearch' name='keywordSearch'></input>
 					<button type='submit'>Search</button>
 				</form>
-				<div className="advancedSearch">Advanced search &raquo;</div>
+				<a href ="#" className="advancedSearch">Advanced search &raquo;</a>
 			</section>
 			<section className='resultsSummary'>
 				<h2>Results</h2>
 				<div className='numberOfResults'>
 					{resultsTotal > 0 ? `Your search produced ${resultsTotal} results` : "No art found."}
 				</div>
-				<div className="nextResultsLink">Next results &raquo;</div>
+				<a href="#" className="nextResultsLink">Next results &raquo;</a>
 			</section>
 			<ul className='resultImages'>
 				{artList.map((artwork) => (
 					<li className='thumbnails' key={artwork.id}>
-						<img src={aicImage(artwork.image_id)} alt='' />
+						
+						<a href={aicDetails(artwork.id)}><img src={aicImage(artwork.image_id)} alt='' /></a>
 					</li>
 				))}
 			</ul>
