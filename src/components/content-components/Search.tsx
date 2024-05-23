@@ -11,6 +11,7 @@ interface artList {
 function Search() {
 	const [keyword, setKeyword] = useState<string>("")
 	const [artList, setArtList] = useState<any[]>([])
+	const [resultsTotal, setResultsTotal] = useState<number>(0)
 
 	function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
 		e.preventDefault()
@@ -25,7 +26,9 @@ function Search() {
 			.then(({ data }) => {
 				console.log(data)
 				const artList = data.data
+				const numOfResults = data.pagination.total
 				setArtList(artList)
+				setResultsTotal(numOfResults)
 			})
 			.catch((error) => {
 				console.log("Error fetching data:", error)
@@ -41,21 +44,22 @@ function Search() {
 					<input type='text' id='keywordSearch' name='keywordSearch'></input>
 					<button type='submit'>Search</button>
 				</form>
+				<div className="advancedSearch">Advanced search &raquo;</div>
 			</section>
-			<section className='searchResults'>
+			<section className='resultsSummary'>
 				<h2>Results</h2>
-				<div>{artList.length > 0 ? `yes, art ${artList.length}` : "No art found."}</div>
-
-				<ul className="resultImages">
-					{artList.map((artwork) => (
-						<li className='thumbnails' key={artwork.id}>
-							<img
-								src={aicImage(artwork.image_id)}
-							/>
-						</li>
-					))}
-				</ul>
+				<div className='numberOfResults'>
+					{resultsTotal > 0 ? `Your search produced ${resultsTotal} results` : "No art found."}
+				</div>
+				<div className="nextResultsLink">Next results &raquo;</div>
 			</section>
+			<ul className='resultImages'>
+				{artList.map((artwork) => (
+					<li className='thumbnails' key={artwork.id}>
+						<img src={aicImage(artwork.image_id)} alt='' />
+					</li>
+				))}
+			</ul>
 		</>
 	)
 }
