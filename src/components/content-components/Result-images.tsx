@@ -1,16 +1,11 @@
-import { aicImage, aicDetails } from "../../utils"
+import { aicImage, aicDetails } from "../../services"
+import { ArtList, Artwork } from "../../types.tsx"
 
 type ResultImagesProps = {
-	artList: artwork[]
-}
-
-type artwork = {
-	id: number
-	title: string
-	image_id: string
-}
-
-function ResultImages({ artList }: ResultImagesProps) {
+    resultImages: unknown;
+  };
+  
+  function ResultImages({ artList }: ResultImagesProps){
 	return (
 		<ul className='resultImages'>
 			{artList.map((artwork) => (

@@ -1,17 +1,12 @@
 import { useState, useEffect } from "react"
 import axios from "axios"
-import { aicSearch } from "../../utils"
-import { SearchInput, ResultsSummary, ResultImages} from "./index"
-
-type artList = {
-	id: number
-	title: string
-	image_id: string
-}
+import { aicSearch } from "../../services"
+import { SearchInput, ResultsSummary, ResultImages } from "./index"
+import { ArtList } from "../../types.tsx"
 
 function Search() {
 	const [keyword, setKeyword] = useState<string>("")
-	const [artList, setArtList] = useState<artList[]>([])
+	const [artList, setArtList] = useState<ArtList[]>([])
 	const [resultsTotal, setResultsTotal] = useState<number>(0)
 
 	useEffect(() => {
