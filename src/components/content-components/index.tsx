@@ -3,6 +3,7 @@ import Search from "./Search"
 import Gallery from "./Gallery"
 import Exhibition from "./Exhibition"
 import Error from "./Error"
-import searchInput from "./Search-input"
+import SearchInput from "./Search-input"
+import ResultsSummary from "./Results-summary"
 
-export { Home, Search, Gallery, Exhibition, Error, searchInput }
+export { Home, Search, Gallery, Exhibition, Error, SearchInput, ResultsSummary }
