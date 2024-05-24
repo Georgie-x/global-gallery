@@ -1,14 +1,17 @@
 import { useState, useEffect } from "react"
 import axios from "axios"
-import { aicSearch, aicImage, aicDetails } from "../../utils"
-import {SearchInput} from "./index"
-import {ResultsSummary} from "./index"
+import { aicSearch } from "../../utils"
+import { SearchInput, ResultsSummary, ResultImages} from "./index"
 
-
+type artList = {
+	id: number
+	title: string
+	image_id: string
+}
 
 function Search() {
 	const [keyword, setKeyword] = useState<string>("")
-	const [artList, setArtList] = useState<any[]>([])
+	const [artList, setArtList] = useState<artList[]>([])
 	const [resultsTotal, setResultsTotal] = useState<number>(0)
 
 	useEffect(() => {
@@ -30,15 +33,7 @@ function Search() {
 		<>
 			<SearchInput setKeyword={setKeyword} />
 			<ResultsSummary resultsTotal={resultsTotal} />
-			<ul className='resultImages'>
-				{artList.map((artwork) => (
-					<li className='thumbnails' key={artwork.id}>
-						<a href={aicDetails(artwork.id)}>
-							<img src={aicImage(artwork.image_id)} alt='' />
-						</a>
-					</li>
-				))}
-			</ul>
+			<ResultImages artList={artList} />
 		</>
 	)
 }
