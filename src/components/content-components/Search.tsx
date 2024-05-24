@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react"
 import axios from "axios"
 import { aicSearch, aicImage, aicDetails } from "../../utils"
+import SearchInput from "./Search-input"
 
 interface artList {
 	id: string
@@ -13,12 +14,7 @@ function Search() {
 	const [artList, setArtList] = useState<any[]>([])
 	const [resultsTotal, setResultsTotal] = useState<number>(0)
 
-	function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
-		e.preventDefault()
-		console.log("Form submitted!")
-		console.log(e.currentTarget.keywordSearch.value)
-		setKeyword(e.currentTarget.keywordSearch.value)
-	}
+
 
 	useEffect(() => {
 		axios
@@ -37,15 +33,7 @@ function Search() {
 
 	return (
 		<>
-			<section className='searchInput'>
-				<h2>Search</h2>
-				<form onSubmit={handleSubmit}>
-					<label htmlFor='keywordSearch'>Keyword:</label>
-					<input type='text' id='keywordSearch' name='keywordSearch'></input>
-					<button type='submit'>Search</button>
-				</form>
-				<a href ="#" className="advancedSearch">Advanced search &raquo;</a>
-			</section>
+			<SearchInput setKeyword={setKeyword}/>
 			<section className='resultsSummary'>
 				<h2>Results</h2>
 				<div className='numberOfResults'>
