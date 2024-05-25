@@ -5,4 +5,3 @@ export type Artwork = {
 	title: string
 	image_id: string
 }
-
