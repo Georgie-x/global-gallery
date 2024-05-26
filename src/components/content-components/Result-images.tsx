@@ -1,16 +1,14 @@
-import { aicImage, aicDetails } from "../../services"
-import { ArtList, Artwork } from "../../types/index.tsx"
+import { ArtList, Artwork} from "../../types/index.tsx"
+import { Thumbnail } from "./index"
 
 function ResultImages({ artList }: { artList: ArtList }) {
 	return (
 		<ul className='resultImages'>
-			{artList.map((artwork) => (
-				<li className='thumbnails' key={artwork.id}>
-					<a href={aicDetails(artwork.id)}>
-						<img src={aicImage(artwork.image_id)} alt='' />
-					</a>
-				</li>
-			))}
+			<li className="thumbnail">
+				{artList.map((artwork:Artwork) => (
+					<Thumbnail artwork={artwork} />
+				))}
+			</li>
 		</ul>
 	)
 }

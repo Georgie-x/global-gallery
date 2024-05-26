@@ -97,9 +97,12 @@ section {
 	gap: 2rem;
 	place-items: center;
 }
-.thumbnails img {
+.thumbnail > *{
 	max-width: 150px;
 	max-height: 150px;
+}
+.thumbnail img{
+	
 	border: 1px solid black;
 	box-shadow: var(--shadow);
 }
@@ -133,11 +136,9 @@ ol li {
 
 ul li {
 	list-style: none;
-	display: inline;
+	
 }
-img {
-	display: inline;
-}
+
 a {
 	color: var(--secondary-medium);
 	text-decoration: none;

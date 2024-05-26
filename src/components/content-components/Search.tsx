@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 import axios from "axios"
-import { aicSearch } from "../../services"
+import { aicKeywordSearch } from "../../services"
 import { SearchInput, ResultsSummary, ResultImages } from "./index"
 import { ArtList } from "../../types/index.tsx"
 
@@ -11,7 +11,7 @@ function Search() {
 
 	useEffect(() => {
 		axios
-			.get(aicSearch(keyword))
+			.get(aicKeywordSearch(keyword))
 			.then(({ data }) => {
 				console.log(data)
 				const artList = data.data

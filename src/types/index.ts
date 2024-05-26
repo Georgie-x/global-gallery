@@ -4,4 +4,7 @@ export type Artwork = {
 	id: number
 	title: string
 	image_id: string
+	thumbnail:{
+		alt_text: string
+	}
 }

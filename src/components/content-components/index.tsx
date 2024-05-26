@@ -6,5 +6,6 @@ import Error from "./Error"
 import SearchInput from "./Search-input"
 import ResultsSummary from "./Results-summary"
 import ResultImages from "./Result-images"
+import Thumbnail from "./Thumbnail"
 
-export { Home, Search, Gallery, Exhibition, Error, SearchInput, ResultsSummary, ResultImages }
+export { Home, Search, Gallery, Exhibition, Error, SearchInput, ResultsSummary, ResultImages, Thumbnail }
