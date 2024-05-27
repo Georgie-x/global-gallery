@@ -1,14 +1,14 @@
-import { ArtList, Artwork} from "../../types/index.tsx"
+import { ArtList, Artwork } from "../../types/index.tsx"
 import { Thumbnail } from "./index"
 
 function ResultImages({ artList }: { artList: ArtList }) {
 	return (
 		<ul className='resultImages'>
-			<li className="thumbnail">
-				{artList.map((artwork:Artwork) => (
+			{artList.map((artwork: Artwork) => (
+				<li className='thumbnail' key={artwork.id}>
 					<Thumbnail artwork={artwork} />
-				))}
-			</li>
+				</li>
+			))}
 		</ul>
 	)
 }

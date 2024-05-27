@@ -91,18 +91,23 @@ section {
 
 .resultImages {
 	width: 100%;
+	height: 100%;
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
 	padding: 1rem;
 	gap: 2rem;
 	place-items: center;
 }
-.thumbnail > *{
+
+.thumbnail a {
+	width: 150px;
+	height: 150px;
+}
+
+
+.thumbnail img{
 	max-width: 150px;
 	max-height: 150px;
-}
-.thumbnail img{
-	
 	border: 1px solid black;
 	box-shadow: var(--shadow);
 }

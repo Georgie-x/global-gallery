@@ -8,3 +8,5 @@ export type Artwork = {
 		alt_text: string
 	}
 }
+
+export type OnClose = () => void;
