@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 import { SearchInput, ResultsSummary, ResultImages } from "./index"
-import { ArtList, ResultsTotal, AicKeywordResponse} from "../../types/index.tsx"
+import { ArtList, ResultsTotal, AicKeywordResponse } from "../../types/index.tsx"
 import { apiAicKeywordSearch } from "../../functions/apiAickeywordSearch.ts"
 
 function Search() {
@@ -16,7 +16,7 @@ function Search() {
 					if (response) {
 						setArtList(response.artList)
 						setResultsTotal(response.resultsTotal)
-					}else{
+					} else {
 						console.error("API call returned undefined")
 					}
 				} catch (error) {

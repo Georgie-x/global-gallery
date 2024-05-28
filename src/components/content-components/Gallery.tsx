@@ -1,7 +1,11 @@
+import {GallerySummary} from "./index";
+import {GalleryImages} from "./index";
+
 function Gallery() {
 	return (
 		<>
-		<p>gallery</p>
+		<GallerySummary />
+		<GalleryImages />
 		</>
 	)
 }
