@@ -1,27 +1,31 @@
 import { useState, useEffect } from "react"
-import axios from "axios"
-import { aicKeywordSearch } from "../../services"
 import { SearchInput, ResultsSummary, ResultImages } from "./index"
-import { ArtList } from "../../types/index.tsx"
+import { ArtList, ResultsTotal, AicKeywordResponse} from "../../types/index.tsx"
+import { apiAicKeywordSearch } from "../../functions/apiAickeywordSearch.ts"
 
 function Search() {
 	const [keyword, setKeyword] = useState<string>("")
 	const [artList, setArtList] = useState<ArtList>([])
-	const [resultsTotal, setResultsTotal] = useState<number>(0)
+	const [resultsTotal, setResultsTotal] = useState<ResultsTotal>(0)
 
 	useEffect(() => {
-		axios
-			.get(aicKeywordSearch(keyword))
-			.then(({ data }) => {
-				console.log(data.data)
-				const artList = data.data
-				const numOfResults = data.pagination.total
-				setArtList(artList)
-				setResultsTotal(numOfResults)
-			})
-			.catch((error) => {
-				console.log("Error fetching data:", error)
-			})
+		const fetchData = async () => {
+			if (keyword) {
+				try {
+					const response: AicKeywordResponse = await apiAicKeywordSearch(keyword)
+					if (response) {
+						setArtList(response.artList)
+						setResultsTotal(response.resultsTotal)
+					}else{
+						console.error("API call returned undefined")
+					}
+				} catch (error) {
+					console.error("Error fetching data:", error)
+				}
+			}
+		}
+
+		fetchData()
 	}, [keyword])
 
 	return (

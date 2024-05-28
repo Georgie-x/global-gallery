@@ -15,9 +15,18 @@ export type ArtworkDetail = {
 	artist_title: string
 	date_display: string
 	medium_display: string
-	thumbnail:{
+	thumbnail: {
 		alt_text: string
 	}
 }
 
-export type OnClose = () => void;
+export type OnClose = () => void
+
+export type ResultsTotal = number
+
+export type AicKeywordResponse =
+	| {
+			artList: ArtList
+			resultsTotal: ResultsTotal
+	  }
+	| undefined

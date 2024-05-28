@@ -5,7 +5,7 @@ function ResultImages({ artList }: { artList: ArtList }) {
 
 	return (
 		<ul className='resultImages'>
-			{artList.map((artwork: Artwork) => (
+			{artList && artList.map((artwork: Artwork) => (
 				<li className='thumbnail' key={artwork.id}>
 					<Thumbnail artwork={artwork} />
 				</li>
