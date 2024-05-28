@@ -13,7 +13,7 @@ function Search() {
 		axios
 			.get(aicKeywordSearch(keyword))
 			.then(({ data }) => {
-				console.log(data)
+				console.log(data.data)
 				const artList = data.data
 				const numOfResults = data.pagination.total
 				setArtList(artList)
