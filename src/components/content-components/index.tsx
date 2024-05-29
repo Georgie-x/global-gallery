@@ -9,5 +9,19 @@ import ResultImages from "./Result-images"
 import Thumbnail from "./Thumbnail"
 import ArtDetail from "./ArtDetail"
 import GallerySummary from "./Gallery-summary"
+import GalleryImages from "./Gallery-images"
 
-export { Home, Search, Gallery, Exhibition, Error, SearchInput, ResultsSummary, ResultImages, Thumbnail, ArtDetail, GallerySummary }
+export {
+	Home,
+	Search,
+	Gallery,
+	Exhibition,
+	Error,
+	SearchInput,
+	ResultsSummary,
+	ResultImages,
+	Thumbnail,
+	ArtDetail,
+	GallerySummary,
+	GalleryImages
+}

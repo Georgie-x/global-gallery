@@ -1,7 +1,7 @@
 import axios from "axios"
-import { aicKeywordSearch } from "../services"
+import { aicKeywordSearch } from "../utils"
 
-export const apiAicKeywordSearch = async (keyword: string)=> {
+export const apiAicKeywordSearch = async (keyword: string) => {
 	try {
 		const response = await axios.get(aicKeywordSearch(keyword))
 		const artList = response.data.data

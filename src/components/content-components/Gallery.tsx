@@ -1,11 +1,26 @@
-import {GallerySummary} from "./index";
-import {GalleryImages} from "./index";
+import { GallerySummary, GalleryImages } from "./index"
+import { ArtList } from "../../types"
+import { useState, useEffect } from "react"
 
 function Gallery() {
+	const [galleryList, setGalleryList] = useState<ArtList>([])
+
+	useEffect(() => {
+		const galleryList = sessionStorage.getItem("galleryList")
+		if (galleryList) {
+			try {
+				const parsedArtList: ArtList = JSON.parse(galleryList)
+				setGalleryList(parsedArtList)
+			} catch (error) {
+				console.error("Error parsing stored artList:", error)
+			}
+		}
+	}, [galleryList])
+
 	return (
 		<>
-		<GallerySummary />
-		<GalleryImages />
+			<GallerySummary galleryList={galleryList} />
+			<GalleryImages galleryList={galleryList} />
 		</>
 	)
 }

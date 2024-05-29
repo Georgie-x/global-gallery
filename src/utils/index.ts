@@ -9,3 +9,12 @@ export function aicImage(image_id: string): string {
 export function aicDetails(id: number): string {
 	return `https://api.artic.edu/api/v1/artworks/${id}?fields=id,title,image_id,thumbnail.alt_text`
 }
+
+
+export function addToGallery (){
+
+}
+
+export function removeFromGallery (){
+	
+}

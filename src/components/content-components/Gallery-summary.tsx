@@ -5,10 +5,13 @@ function GallerySummary({ galleryList }: { galleryList:ArtList }) {
 		<section className='gallerySummary'>
 			<h2>Gallery</h2>
 			<div className='numberOfArtworks'>
-				{galleryList.length > 0 ? `Your gallery contains ${galleryList.length} results` : "No art found."}
+				{
+				galleryList.length > 1 ? `Your gallery contains ${galleryList.length} artworks` :
+				galleryList.length === 1 ? `Your gallery contains 1 artwork!` :
+				 "No art found."}
 			</div>
-			<a href='#' className='nextResultsLink'>
-				Next results &raquo;
+			<a href='#' className='Curate Exhibition'>
+				Curate Exhibition &raquo;
 			</a>
 		</section>
 	)
