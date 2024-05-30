@@ -2,11 +2,9 @@ function Home() {
 	return (
 		<section className="welcome">
 			<h2>Welcome to Global Gallery!</h2>
-			<ol>
-				<li>Discover art from our collections around the World</li>
-				<li>Save artworks to your gallery</li>
-				<li>Curate an exhibition with your favourites!</li>
-			</ol>
+			<br />
+			<p>Discover art from our collections around the World. Save artworks to your gallery and curate an exhibition with your favourites!</p>
+		
 		</section>
 	)
 }

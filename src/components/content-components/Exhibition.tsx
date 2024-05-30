@@ -1,8 +1,11 @@
 function Exhibition() {
 	return (
-		<>
-		<p>exhibition</p>
-		</>
+		<section>
+		<h2>Exhibition</h2>
+		<p>Add images to your gallery to curate an exhibition</p>	<a href='#' className='Curate Exhibition'>
+				Search artworks &raquo;
+			</a>
+		</section>
 	)
 }
 

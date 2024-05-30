@@ -14,7 +14,7 @@
 	background-color: var(--primary-light);
 	color: var(--text);
 	font-size: 16px;
-	font-family: "Montserrat", sans-serif;;
+	font-family: "Montserrat", sans-serif;
 }
 * {
 	margin: 0;
@@ -114,12 +114,10 @@ label {
 .fullDetails {
 	grid-area: fullDetails;
 	padding: 1rem;
-
 }
 .addArt {
 	grid-area: addArt;
 	place-self: start;
-
 }
 
 .closeWindow {
@@ -127,8 +125,6 @@ label {
 	grid-area: closeWindow;
 	place-self: end;
 }
-
-
 
 .smallImage {
 	max-width: 150px;
@@ -167,16 +163,14 @@ label {
 input {
 	display: inline;
 }
-p {
-	display: inline;
-}
 
 h1,
 h2,
 h3,
 a {
 	color: var(--primary-dark);
-	display:inline;
+	display: inline;
+	line-height: 1.2;
 }
 
 h1 {
@@ -186,13 +180,15 @@ h1 {
 h2 {
 	font-size: var(--font-size-medium);
 	font-weight: 600;
-	
 }
 h3 {
 	font-size: var(--font-size-small);
 	font-weight: 600;
-	color: var(--primary-medium)
-	
+	color: var(--primary-medium);
+}
+
+p {
+	display: inline;
 }
 
 button {
@@ -227,15 +223,12 @@ a:hover {
 
 .skip-to-content {
 	position: absolute;
-	left: -9999px;
-	z-index: 999;
 	padding: 1em;
 	background-color: black;
 	color: white;
+	font-size: var(--font-size-medium);
 	opacity: 0;
 }
 .skip-to-content:focus {
-	left: 50%;
-	transform: translateX(-50%);
 	opacity: 1;
 }
