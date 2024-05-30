@@ -2,6 +2,7 @@ import { useState, useEffect } from "react"
 import { SearchInput, ResultsSummary, ResultImages } from "./index"
 import { ArtList, ResultsTotal, AicKeywordResponse } from "../../types/index.tsx"
 import { apiAicKeywordSearch } from "../../functions/apiAicKeywordSearch.ts"
+import { apiRijksKeywordSearch } from "../../functions/apiRijksKeywordSearch.ts"
 
 function Search() {
 	const [keyword, setKeyword] = useState<string>("")
@@ -12,7 +13,7 @@ function Search() {
 		const fetchData = async () => {
 			if (keyword) {
 				try {
-					const response: AicKeywordResponse = await apiAicKeywordSearch(keyword)
+					const response: AicKeywordResponse = await apiRijksKeywordSearch(keyword)
 					if (response) {
 						setArtList(response.artList)
 						setResultsTotal(response.resultsTotal)

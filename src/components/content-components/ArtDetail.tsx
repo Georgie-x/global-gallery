@@ -11,9 +11,8 @@ function ArtDetail({ artwork, onClose }: { artwork: Artwork; onClose: OnClose })
 						alt={`${aicDetails(artwork.id)}`}
 					/>
 				<div className='fullDetails'>
-                    <h2>Artwork Details</h2>
-                    <br />
-					<h3>Title:</h3><p> {artwork.title}</p>
+                   
+					<h3>Title </h3><p> {artwork.title}</p>
 
 				</div>
 				<div className='addArt'>

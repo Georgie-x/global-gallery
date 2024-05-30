@@ -1,3 +1,9 @@
+
+export function rijksKeywordSearch(keyword: string): string {
+	const apiKey = import.meta.env.RIJKS_API_KEY
+	return `https://www.rijksmuseum.nl/api/en/collection?key=${apiKey}&search?q=${keyword}`
+}
+
 export function aicKeywordSearch(keyword: string): string {
 	return `https://api.artic.edu/api/v1/artworks/search?q=${keyword}&query[term][is_public_domain]=true&fields=id,title,image_id`
 }
@@ -8,13 +14,4 @@ export function aicImage(image_id: string): string {
 
 export function aicDetails(id: number): string {
 	return `https://api.artic.edu/api/v1/artworks/${id}?fields=id,title,image_id,thumbnail.alt_text`
-}
-
-
-export function addToGallery (){
-
-}
-
-export function removeFromGallery (){
-	
 }
