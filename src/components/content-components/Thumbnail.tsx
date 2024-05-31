@@ -17,7 +17,7 @@ function Thumbnail({ artwork }: { artwork: Artwork }) {
 	return (
 		<>
 			<img className="smallImage"
-				src={aicImage(artwork.image_id)}
+				src={artwork.image_url}
 				alt={`${aicDetails(artwork.id)}`}
 				onClick={handleImageClick}
 			/>

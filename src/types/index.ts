@@ -10,6 +10,7 @@ export type Artwork = {
 export type ArtworkDetail = {
 	id: number
 	title: string
+	artist: string
 	image_id: string
 	_score: string
 	artist_title: string
