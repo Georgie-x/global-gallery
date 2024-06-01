@@ -23,7 +23,7 @@ export const apiAicKeywordSearch = async (keyword: string) => {
 
 		const results = details
 
-		console.log("check here", results, resultsTotal)
+		console.log("aicresults", results, resultsTotal)
 		return { results, resultsTotal }
 	} catch (error) {
 		console.error("Error fetching data:", error)
