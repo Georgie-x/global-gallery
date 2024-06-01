@@ -1,5 +1,4 @@
 import { useState } from "react"
-import { aicImage, aicDetails } from "../../utils/index.ts"
 import { Artwork } from "../../types/index.ts"
 import { ArtDetail } from "./index"
 
@@ -16,9 +15,10 @@ function Thumbnail({ artwork }: { artwork: Artwork }) {
 
 	return (
 		<>
-			<img className="smallImage"
+			<img
+				className='smallImage'
 				src={artwork.image_url}
-				alt={`${aicDetails(artwork.id)}`}
+				alt={artwork.alt_text}
 				onClick={handleImageClick}
 			/>
 			{showArtDetails && <ArtDetail artwork={artwork} onClose={onClose} />}

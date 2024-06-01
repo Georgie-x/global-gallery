@@ -2,7 +2,7 @@ export type ArtList = Artwork[]
 
 export type Artwork = {
 	id: number | string
-	image_id: string
+	image_url: string
 	title: string
 	artist: string
 	date: string
