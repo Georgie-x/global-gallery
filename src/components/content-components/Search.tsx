@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 import { SearchInput, ResultsSummary, ResultImages } from "./index"
-import { ArtList, ResultsTotal, AicKeywordResponse } from "../../types/index.tsx"
+import { ArtList, ResultsTotal } from "../../types/index.tsx"
 import { apiAicKeywordSearch } from "../../functions/apiAicKeywordSearch.ts"
 import { apiRijksKeywordSearch } from "../../functions/apiRijksKeywordSearch.ts"
 
@@ -13,10 +13,18 @@ function Search() {
 		const fetchData = async () => {
 			if (keyword) {
 				try {
-					const response: AicKeywordResponse = await apiRijksKeywordSearch(keyword)
-					if (response) {
-						setArtList(response.artList)
-						setResultsTotal(response.resultsTotal)
+					const [aicResponse, rijksResponse] = await Promise.all([
+						apiAicKeywordSearch(keyword),
+						apiRijksKeywordSearch(keyword),
+					])
+
+					if (aicResponse && rijksResponse) {
+						const combinedArtList = [...aicResponse.results, ...rijksResponse.results]
+
+						const combinedResultsTotal = aicResponse.resultsTotal + rijksResponse.resultsTotal
+
+						setArtList(combinedArtList)
+						setResultsTotal(combinedResultsTotal)
 					} else {
 						console.error("API call returned undefined")
 					}

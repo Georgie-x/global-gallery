@@ -1,33 +1,24 @@
 export type ArtList = Artwork[]
 
 export type Artwork = {
-	id: number
-	title: string
+	id: number | string
 	image_id: string
-	_score: string
-}
-
-export type ArtworkDetail = {
-	id: number
 	title: string
 	artist: string
-	image_id: string
-	_score: string
-	artist_title: string
-	date_display: string
-	medium_display: string
-	thumbnail: {
-		alt_text: string
-	}
+	date: string
+	medium: string
+	origin: string
+	alt_text: string
+	
 }
 
 export type OnClose = () => void
 
 export type ResultsTotal = number
 
-export type AicKeywordResponse =
+export type KeywordResponse =
 	| {
 			artList: ArtList
-			resultsTotal: ResultsTotal
+
 	  }
 	| undefined
