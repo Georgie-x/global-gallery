@@ -1,7 +1,19 @@
 import { Artwork, OnClose } from "../../types/index.ts"
-
+import { useState } from "react"
+import { addToGallery, removeFromGallery } from "../../utils/index.ts"
 
 function ArtDetail({ artwork, onClose }: { artwork: Artwork; onClose: OnClose }) {
+	const [artworkInGallery, setArtworkInGallery] = useState<boolean>(false)
+
+	const handleAddClick = (artwork: Artwork) => {
+		addToGallery(artwork)
+		setArtworkInGallery(true)
+	}
+	const handleRemoveClick = (artwork: Artwork) => {
+		removeFromGallery(artwork)
+		setArtworkInGallery(false)
+	}
+
 	console.log(artwork)
 	return (
 		<div className='art-detail-container'>
@@ -18,12 +30,21 @@ function ArtDetail({ artwork, onClose }: { artwork: Artwork; onClose: OnClose })
 					<p>{artwork.date}</p>
 					<h3>Medium</h3>
 					<p>{artwork.medium}</p>
-		
+					<h3>Description</h3>
+					<p>{artwork.description}</p>
 				</div>
-				<div className='addArt'>
-					<button>&#10003;</button>
-					<p>Add this artwork to your gallery</p>
-				</div>
+				{artworkInGallery ? (
+					<div className='removeArt'>
+						<button onClick={() => handleRemoveClick(artwork)}>hello</button>
+						<p>Remove this artwork from your gallery</p>
+					</div>
+				) : (
+					<div className='addArt'>
+						<button onClick={() => handleAddClick(artwork)}>&#10003;</button>
+						<p>Add this artwork to your gallery</p>
+					</div>
+				)}
+
 				<div className='closeWindow'>
 					<p>Close Window</p>
 					<button onClick={onClose}>&#10799;</button>

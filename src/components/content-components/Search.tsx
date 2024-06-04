@@ -26,7 +26,7 @@ function Search() {
 						setArtList(combinedArtList)
 						setResultsTotal(combinedResultsTotal)
 					} else {
-						console.error("API call returned undefined")
+						console.error("API calls cannot be combined")
 					}
 				} catch (error) {
 					console.error("Error fetching data:", error)

@@ -95,35 +95,41 @@ label {
 	align-items: center;
 }
 .art-detail {
-	height: 50vh;
-	width: 50vw;
+	max-height: 90vh;
+	width: 1024px;
 	background-color: var(--secondary-light);
 	display: grid;
 	grid-template-areas:
 		"largeImage fullDetails"
 		"addArt closeWindow";
-	grid-template-columns: 25vw 25vw;
+	grid-template-columns: 0.6fr 0.4fr;
 	grid-template-rows: 1fr auto;
+	
 }
 .largeImage {
 	grid-area: largeImage;
-	max-width: 300px;
-	max-height: 300px;
+	max-width: 600px;
+	max-height: 600px;
 	place-self: center;
+	padding: 1rem;
 }
 .fullDetails {
 	grid-area: fullDetails;
 	padding: 1rem;
+	place-self: left;
+	overflow: auto;
 }
 .addArt {
 	grid-area: addArt;
 	place-self: start;
+	padding: 1rem;
 }
 
 .closeWindow {
 	text-align: end;
 	grid-area: closeWindow;
 	place-self: end;
+	padding: 1rem;
 }
 
 .smallImage {

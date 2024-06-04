@@ -1,7 +1,7 @@
 export type ArtList = Artwork[]
 
 export type Artwork = {
-	id: number | string
+	id: string
 	image_url: string
 	title: string
 	artist: string
@@ -9,16 +9,26 @@ export type Artwork = {
 	medium: string
 	origin: string
 	alt_text: string
-	
+	description: string
 }
 
 export type OnClose = () => void
+
+export type OnClick = () => void
 
 export type ResultsTotal = number
 
 export type KeywordResponse =
 	| {
 			artList: ArtList
-
 	  }
 	| undefined
+
+export type RijksSummary = {
+	id: string
+	image_url: string
+	objectNumber: string
+	webImage: {
+		url: string
+	}
+}
