@@ -15,7 +15,7 @@ function Gallery() {
 				console.error("Error parsing stored artList:", error)
 			}
 		}
-	}, [galleryList])
+	}, [])
 
 	return (
 		<>
