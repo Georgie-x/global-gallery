@@ -1,8 +1,8 @@
 import { useState } from "react"
-import { Artwork } from "../../types/index.ts"
+import { Artwork } from "../../utils/types.ts"
 import { ArtDetail } from "./index"
 
-function Thumbnail({ artwork }: { artwork: Artwork }) {
+function Thumbnail({ artwork, isLoading }: { artwork: Artwork; isLoading: boolean }) {
 	const [showArtDetails, setShowArtDetails] = useState<boolean>(false)
 
 	const handleImageClick = () => {
@@ -15,12 +15,16 @@ function Thumbnail({ artwork }: { artwork: Artwork }) {
 
 	return (
 		<>
-			<img
-				className='smallImage'
-				src={artwork.image_url}
-				alt={artwork.alt_text}
-				onClick={handleImageClick}
-			/>
+			{isLoading ? (
+				<div className='loader'></div>
+			) : (
+				<img
+					className='smallImage'
+					src={artwork.image_url}
+					alt={artwork.alt_text}
+					onClick={handleImageClick}
+				/>
+			)}
 			{showArtDetails && <ArtDetail artwork={artwork} onClose={onClose} />}
 		</>
 	)

@@ -1,6 +1,6 @@
 import axios from "axios"
-import { rijksKeywordSearch, rijksDetails } from "../utils"
-import { Artwork, RijksSummary } from "../types"
+import { rijksKeywordSearch, rijksDetails } from "../utils/apis"
+import { Artwork, RijksSummary } from "../utils/types"
 
 export const apiRijksKeywordSearch = async (keyword: string) => {
 	try {

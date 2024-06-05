@@ -1,23 +1,28 @@
-import { Artwork, OnClose } from "../../types/index.ts"
+import { Artwork, OnClose } from "../../utils/types.ts"
 import { useState } from "react"
-import { addToGallery, removeFromGallery } from "../../utils/index.ts"
+import { addToGallery, removeFromGallery, artInGallery, loadGallery } from "../../utils/storage.ts"
 
 function ArtDetail({ artwork, onClose }: { artwork: Artwork; onClose: OnClose }) {
-	const [artworkInGallery, setArtworkInGallery] = useState<boolean>(false)
+	const [artworkInGallery, setArtworkInGallery] = useState<boolean>(
+		artInGallery(artwork, loadGallery())
+	)
 
 	const handleAddClick = (artwork: Artwork) => {
 		addToGallery(artwork)
 		setArtworkInGallery(true)
+		onClose()
 	}
 	const handleRemoveClick = (artwork: Artwork) => {
 		removeFromGallery(artwork)
 		setArtworkInGallery(false)
+		onClose()
 	}
 
 	console.log(artwork)
 	return (
 		<div className='art-detail-container'>
 			<div className='art-detail'>
+				<div className="container">
 				<img className='largeImage' src={artwork.image_url} alt={artwork.alt_text} />
 				<div className='fullDetails'>
 					<h3>Title</h3>
@@ -32,7 +37,7 @@ function ArtDetail({ artwork, onClose }: { artwork: Artwork; onClose: OnClose })
 					<p>{artwork.medium}</p>
 					<h3>Description</h3>
 					<p>{artwork.description}</p>
-				</div>
+				</div></div>
 				{artworkInGallery ? (
 					<div className='removeArt'>
 						<button onClick={() => handleRemoveClick(artwork)}>hello</button>

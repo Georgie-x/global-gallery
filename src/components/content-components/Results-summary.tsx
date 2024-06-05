@@ -1,4 +1,4 @@
-import { ResultsTotal } from "../../types"
+import { ResultsTotal } from "../../utils/types"
 
 function ResultsSummary({ resultsTotal }: { resultsTotal: ResultsTotal }) {
 	return (
