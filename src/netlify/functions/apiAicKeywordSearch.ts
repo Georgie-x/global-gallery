@@ -1,5 +1,5 @@
 import axios from "axios"
-import { aicKeywordSearch, aicDetails, aicImage } from "../utils/apis"
+import { aicKeywordSearch, aicDetails, aicImage } from "../../utils/apis"
 
 export const apiAicKeywordSearch = async (keyword: string) => {
 	try {

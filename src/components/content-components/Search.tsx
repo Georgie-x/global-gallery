@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react"
 import { SearchInput, ResultsSummary, ResultImages } from "./index"
 import { ArtList, ResultsTotal } from "../../utils/types.ts"
-import { apiAicKeywordSearch } from "../../functions/apiAicKeywordSearch.ts"
-import { apiRijksKeywordSearch } from "../../functions/apiRijksKeywordSearch.ts"
+import { apiAicKeywordSearch } from "../../netlify/functions/apiAicKeywordSearch.ts"
+import { apiRijksKeywordSearch } from "../../netlify/functions/apiRijksKeywordSearch.ts"
 
 function Search() {
 	const [keyword, setKeyword] = useState<string>("")
