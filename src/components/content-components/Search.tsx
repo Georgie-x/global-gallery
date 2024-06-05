@@ -8,11 +8,11 @@ function Search() {
 	const [keyword, setKeyword] = useState<string>("")
 	const [artList, setArtList] = useState<ArtList>([])
 	const [resultsTotal, setResultsTotal] = useState<ResultsTotal>(0)
-	const [isLoading, setIsLoading] = useState<boolean>(false)
+	
 
 	useEffect(() => {
 		const fetchData = async () => {
-			setIsLoading(true)
+			
 			if (keyword) {
 				try {
 					const [aicResponse, rijksResponse] = await Promise.all([
@@ -27,7 +27,7 @@ function Search() {
 
 						setArtList(combinedArtList)
 						setResultsTotal(combinedResultsTotal)
-						setIsLoading(false)
+					
 					} else {
 						console.error("API calls cannot be combined")
 					}
@@ -44,7 +44,7 @@ function Search() {
 		<>
 			<SearchInput setKeyword={setKeyword} />
 			<ResultsSummary resultsTotal={resultsTotal} />
-			<ResultImages artList={artList} isLoading={isLoading} />
+			<ResultImages artList={artList} />
 		</>
 	)
 }

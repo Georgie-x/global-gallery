@@ -2,7 +2,7 @@ import { useState } from "react"
 import { Artwork } from "../../utils/types.ts"
 import { ArtDetail } from "./index"
 
-function Thumbnail({ artwork, isLoading }: { artwork: Artwork; isLoading: boolean }) {
+function Thumbnail({ artwork }: { artwork: Artwork }) {
 	const [showArtDetails, setShowArtDetails] = useState<boolean>(false)
 
 	const handleImageClick = () => {
@@ -15,16 +15,14 @@ function Thumbnail({ artwork, isLoading }: { artwork: Artwork; isLoading: boolea
 
 	return (
 		<>
-			{isLoading ? (
-				<div className='loader'></div>
-			) : (
+			
 				<img
 					className='smallImage'
 					src={artwork.image_url}
 					alt={artwork.alt_text}
 					onClick={handleImageClick}
 				/>
-			)}
+			
 			{showArtDetails && <ArtDetail artwork={artwork} onClose={onClose} />}
 		</>
 	)
