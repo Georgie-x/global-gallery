@@ -7,9 +7,9 @@ function Gallery() {
 	const [galleryList, setGalleryList] = useState<ArtList>([])
 
 	useEffect(() => {
-		const gallery = loadGallery();
-		setGalleryList(gallery);
-	  }, []);
+		const gallery = loadGallery()
+		setGalleryList(gallery)
+	}, [])
 
 	return (
 		<>

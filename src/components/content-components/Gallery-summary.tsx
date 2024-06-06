@@ -9,11 +9,14 @@ function GallerySummary({ galleryList }: { galleryList: ArtList }) {
 					? `Your gallery contains ${galleryList.length} artworks`
 					: galleryList.length === 1
 					? `Your gallery contains 1 artwork!`
-					: "No art found."}
+					: "No art found"}
 			</div>
-			<a href='#' className='Curate Exhibition'>
+			{galleryList.length === 0 ? <a href='/search' className='Curate Exhibition'>
+				Add art to gallery &raquo;
+			</a> : <a href='/exhibition' className='Curate Exhibition'>
 				Curate Exhibition &raquo;
-			</a>
+			</a> }
+			
 		</section>
 	)
 }

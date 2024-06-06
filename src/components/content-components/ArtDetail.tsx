@@ -1,8 +1,8 @@
-import { Artwork, OnClose } from "../../utils/types.ts"
+import { Artwork, VoidFunction } from "../../utils/types.ts"
 import { useState } from "react"
 import { addToGallery, removeFromGallery, artInGallery, loadGallery } from "../../utils/storage.ts"
 
-function ArtDetail({ artwork, onClose }: { artwork: Artwork; onClose: OnClose }) {
+function ArtDetail({ artwork, onClose }: { artwork: Artwork; onClose: VoidFunction }) {
 	const [artworkInGallery, setArtworkInGallery] = useState<boolean>(
 		artInGallery(artwork, loadGallery())
 	)
@@ -41,7 +41,7 @@ function ArtDetail({ artwork, onClose }: { artwork: Artwork; onClose: OnClose })
 				<div className='addArt'>
 					{artworkInGallery ? (
 						<>
-							<button onClick={() => handleRemoveClick(artwork)}>hello</button>
+							<button onClick={() => handleRemoveClick(artwork)}>-</button>
 							<p>Remove this artwork from your gallery</p>
 						</>
 					) : (

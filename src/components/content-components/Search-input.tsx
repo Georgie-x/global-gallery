@@ -1,8 +1,25 @@
-function SearchInput({ setKeyword }: { setKeyword: (keyword: string) => void }) {
-    
+import { useEffect } from "react"
+import { SearchInputProps } from "../../utils/types"
+
+function SearchInput({ setKeyword, keyword }: SearchInputProps) {
+	useEffect(() => {
+		const savedKeyword = sessionStorage.getItem("keyword")
+		if (savedKeyword) {
+			setKeyword(savedKeyword)
+		}
+	}, [setKeyword])
+
+	useEffect(() => {
+		if (keyword) {
+			sessionStorage.setItem("keyword", keyword)
+		}
+	}, [keyword])
+
 	function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
 		e.preventDefault()
-		setKeyword(e.currentTarget.keywordSearch.value)
+		const newKeyword = e.currentTarget.keywordSearch.value
+		setKeyword(newKeyword)
+		sessionStorage.setItem("keyword", newKeyword)
 	}
 
 	return (

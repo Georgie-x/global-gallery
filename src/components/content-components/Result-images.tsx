@@ -1,7 +1,7 @@
 import { ArtList, Artwork } from "../../utils/types.ts"
 import { Thumbnail } from "./index"
 
-function ResultImages({ artList}: { artList: ArtList}) {
+function ResultImages({ artList }: { artList: ArtList}) {
 	return (
 		<ul className='resultImages'>
 			{artList &&

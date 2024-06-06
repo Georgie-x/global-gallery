@@ -23,5 +23,5 @@ export {
 	Thumbnail,
 	ArtDetail,
 	GallerySummary,
-	GalleryImages
+	GalleryImages,
 }

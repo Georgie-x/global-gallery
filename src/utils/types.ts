@@ -12,9 +12,9 @@ export type Artwork = {
 	description: string
 }
 
-export type OnClose = () => void
+export type VoidFunction = () => void
 
-export type OnClick = () => void
+export type SetPageNo = (pageNo: number) => void
 
 export type ResultsTotal = number
 
@@ -31,4 +31,9 @@ export type RijksSummary = {
 	webImage: {
 		url: string
 	}
+}
+
+export type SearchInputProps = {
+	setKeyword: (keyword: string) => void
+	keyword: string
 }

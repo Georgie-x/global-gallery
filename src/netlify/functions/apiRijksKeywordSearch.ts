@@ -2,10 +2,9 @@ import axios from "axios"
 import { rijksKeywordSearch, rijksDetails } from "../../utils/apis"
 import { Artwork, RijksSummary } from "../../utils/types"
 
-
-export const apiRijksKeywordSearch = async (keyword: string) => {
+export const apiRijksKeywordSearch = async (keyword: string, pageNo: number) => {
 	try {
-		const response = await axios.get(rijksKeywordSearch(keyword))
+		const response = await axios.get(rijksKeywordSearch(keyword, pageNo))
 		const resultsTotal = response.data.count
 		console.log("rijks1", response)
 

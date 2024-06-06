@@ -1,9 +1,9 @@
 import axios from "axios"
 import { aicKeywordSearch, aicDetails, aicImage } from "../../utils/apis"
 
-export const apiAicKeywordSearch = async (keyword: string) => {
+export const apiAicKeywordSearch = async (keyword: string, pageNo: number) => {
 	try {
-		const response = await axios.get(aicKeywordSearch(keyword))
+		const response = await axios.get(aicKeywordSearch(keyword, pageNo))
 		const resultsTotal = response.data.pagination.total
 		const ids = response.data.data.map((artwork: { id: number }) => artwork.id)
 

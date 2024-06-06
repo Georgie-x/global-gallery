@@ -15,14 +15,13 @@ function Thumbnail({ artwork }: { artwork: Artwork }) {
 
 	return (
 		<>
-			
-				<img
-					className='smallImage'
-					src={artwork.image_url}
-					alt={artwork.alt_text}
-					onClick={handleImageClick}
-				/>
-			
+			<img
+				className='smallImage'
+				src={artwork.image_url}
+				alt={artwork.alt_text}
+				onClick={handleImageClick}
+			/>
+
 			{showArtDetails && <ArtDetail artwork={artwork} onClose={onClose} />}
 		</>
 	)
