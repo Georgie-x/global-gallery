@@ -1,4 +1,4 @@
-export function rijksKeywordSearch(keyword: string, pageNo: number = 1): string {
+export function rijksKeywordSearch(keyword: string, pageNo: number = 2): string {
 	const apiKey = import.meta.env.VITE_RIJKS_API_KEY
 	return `https://www.rijksmuseum.nl/api/en/collection?key=${apiKey}&q=${keyword}&imgonly=true&p=${pageNo}`
 }
@@ -6,7 +6,7 @@ export function rijksDetails(id: string): string {
 	const apiKey = import.meta.env.VITE_RIJKS_API_KEY
 	return `https://www.rijksmuseum.nl/api/en/collection/${id}?key=${apiKey}`
 }
-export function aicKeywordSearch(keyword: string, pageNo: number = 1): string {
+export function aicKeywordSearch(keyword: string, pageNo: number = 2): string {
 	return `https://api.artic.edu/api/v1/artworks/search?q=${keyword}&query[term][is_public_domain]=true&fields=id,title,image_id,thumbnail.alt_text,place_of_origin,medium_display,artist_title&page=${pageNo}`
 }
 export function aicImage(image_id: string): string {
