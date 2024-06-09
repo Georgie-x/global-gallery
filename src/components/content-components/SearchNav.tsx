@@ -1,27 +1,56 @@
 import { useEffect } from "react"
-import { SetPageNo } from "../../utils/types"
+import { ResultsTotal, SetPageNo } from "../../utils/types"
 
-function SearchNav({ setPageNo }: { setPageNo: SetPageNo }) {
-	const handleNextPage = () => {
-		const prevPageNo = sessionStorage.getItem("prevPageNo")
-		const newPageNo = prevPageNo ? parseInt(prevPageNo) + 1 : 2
-		setPageNo(newPageNo)
-	}
+function SearchNav({
+    pageNo,
+    setPageNo,
+    resultsTotal,
+}: {
+    pageNo: number
+    setPageNo: SetPageNo
+    resultsTotal: ResultsTotal
+}) {
+    const handleNextPage = () => {
+        const newPageNo = pageNo + 1
+        setPageNo(newPageNo)
+        sessionStorage.setItem("pageNo", newPageNo.toString())
+    }
 
-	useEffect(() => {
-		const prevPageNo = sessionStorage.getItem("prevPageNo")
-		if (prevPageNo) {
-			setPageNo(parseInt(prevPageNo))
-		}
-	}, [])
+    const handlePrevPage = () => {
+        if (pageNo > 1) {
+            const newPageNo = pageNo - 1
+            setPageNo(newPageNo)
+            sessionStorage.setItem("pageNo", newPageNo.toString())
+        }
+    }
 
-	return (
-		<nav className='search-nav'>
-			<a href='#' className='next-results-link' onClick={handleNextPage}>
-				Next results &raquo;
-			</a>
-		</nav>
-	)
+    useEffect(() => {
+        const prevPageNo = sessionStorage.getItem("pageNo")
+        if (prevPageNo) {
+            setPageNo(parseInt(prevPageNo))
+        }
+    }, [setPageNo])
+
+    return (
+        <nav className='search-nav'>
+            {resultsTotal < 10 ? (
+                <a href='#' className='new-search-link'>
+                    New Search
+                </a>
+            ) : (
+                <>
+                    {pageNo > 1 && (
+                        <a href='#' className='prev-results-link' onClick={handlePrevPage}>
+                            &laquo; Previous Page
+                        </a>
+                    )}
+                    <a href='#' className='next-results-link' onClick={handleNextPage}>
+                        Next Page &raquo;
+                    </a>
+                </>
+            )}
+        </nav>
+    )
 }
 
 export default SearchNav

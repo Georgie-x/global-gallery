@@ -24,20 +24,48 @@ function ArtDetail({ artwork, onClose }: { artwork: Artwork; onClose: VoidFuncti
 			<div className='art-display'>
 				<img className='large-image' src={artwork.image_url} alt={artwork.alt_text} />
 				<div className='full-details'>
-					<h3>Title</h3>
-					<p>{artwork.title}</p>
-					<h3>Artist</h3>
-					<p>{artwork.artist}</p>
-					<h3>Origin</h3>
-					<p>{artwork.origin}</p>
-					<h3>Date</h3>
-					<p>{artwork.date}</p>
-					<h3>Medium</h3>
-					<p>{artwork.medium}</p>
-					<h3>Description</h3>
-					<p>{artwork.description}</p>
-					<h3>More Info</h3>
-					<a href={artwork.more_info}>{artwork.more_info}</a>
+					{artwork.title && (
+						<>
+							<h3>Title</h3>
+							<p>{artwork.title}</p>
+						</>
+					)}
+					{artwork.artist && (
+						<>
+							<h3>Artist</h3>
+							<p>{artwork.artist}</p>
+						</>
+					)}
+					{artwork.origin && (
+						<>
+							<h3>Origin</h3>
+							<p>{artwork.origin}</p>
+						</>
+					)}
+					{artwork.date && (
+						<>
+							<h3>Date</h3>
+							<p>{artwork.date}</p>
+						</>
+					)}
+					{artwork.medium && (
+						<>
+							<h3>Medium</h3>
+							<p>{artwork.medium}</p>
+						</>
+					)}
+					{artwork.description && (
+						<>
+							<h3>Description</h3>
+							<p>{artwork.description}</p>
+						</>
+					)}
+					{artwork.more_info && (
+						<>
+							<h3>More Info</h3>
+							<a href={artwork.more_info}>{artwork.more_info}</a>
+						</>
+					)}
 				</div>
 				<div className='detail-actions'>
 					<div className='add-art'>

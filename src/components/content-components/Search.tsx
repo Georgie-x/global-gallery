@@ -15,10 +15,12 @@ function Search() {
 	const [pageNo, setPageNo] = useState<number>(() =>
 		parseInt(localStorage.getItem("pageNo") || "1")
 	)
+	const [isLoading, setIsLoading] = useState<boolean>(false)
 
 	useEffect(() => {
 		const fetchData = async () => {
 			if (keyword) {
+				setIsLoading(true)
 				try {
 					const [aicResponse, rijksResponse] = await Promise.all([
 						apiAicKeywordSearch(keyword, pageNo),
@@ -37,6 +39,8 @@ function Search() {
 					}
 				} catch (error) {
 					console.error("Error fetching data:", error)
+				} finally {
+					setIsLoading(false)
 				}
 			}
 		}
@@ -46,11 +50,18 @@ function Search() {
 
 	return (
 		<>
-			<SearchInput setKeyword={setKeyword} keyword={keyword} />
-			<ResultsSummary resultsTotal={resultsTotal}  />
-			<ResultImages artList={artList} />
-			<SearchNav setPageNo={setPageNo} />
-		</>
+		<SearchInput setKeyword={setKeyword} keyword={keyword} />
+		{isLoading ? (
+			<div className="loader">Loading...</div>
+		) : (
+			<>
+				<ResultsSummary resultsTotal={resultsTotal} />
+				<ResultImages artList={artList} />
+				<SearchNav pageNo={pageNo} setPageNo={setPageNo} resultsTotal={resultsTotal}  />
+			</>
+		)}
+		
+	</>
 	)
 }
 

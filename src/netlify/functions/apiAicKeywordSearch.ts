@@ -18,10 +18,13 @@ export const apiAicKeywordSearch = async (keyword: string, pageNo: number) => {
 				const image_url = aicImage(secondResponse.data.data.image_id)
 				const description = secondResponse.data.data.description
 				const more_info = `https://www.artic.edu/artworks/${id}`
+				if (!image_url) return null
 				return { id, artist, image_url, origin, title, date, medium, description, more_info }
 			})
 		)
-		const results = details
+		const filteredDetails = details.filter((detail) => detail !== null)
+
+		const results = filteredDetails
 		return { results, resultsTotal }
 	} catch (error) {
 		console.error("AIC search API error", error)
