@@ -57,7 +57,7 @@ function Search() {
 			<>
 				<ResultsSummary resultsTotal={resultsTotal} />
 				<ResultImages artList={artList} />
-				<SearchNav pageNo={pageNo} setPageNo={setPageNo} resultsTotal={resultsTotal}  />
+				{resultsTotal < 10 && <SearchNav pageNo={pageNo} setPageNo={setPageNo} />}
 			</>
 		)}
 		

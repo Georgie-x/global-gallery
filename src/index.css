@@ -232,10 +232,20 @@ input[type="text"] {
 	gap: var(--gap);
 	place-items: center;
 }
-.search-nav > * {
-	color: pink;
-	background-color: brown;
+.search-nav {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	gap: var(--big-gap);
 }
+
+.search-nav a {
+	color: var(--banner);
+}
+.search-nav a:hover {
+	color: var(--primary-dark);
+}
+
 .thumbnail {
 	width: 200px;
 	height: 200px;
