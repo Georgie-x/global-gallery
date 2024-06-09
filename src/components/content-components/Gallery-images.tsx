@@ -3,7 +3,7 @@ import { Thumbnail } from "./index"
 
 function GalleryImages({ galleryList }: { galleryList: ArtList }) {
 	return (
-		<ul className='resultImages'>
+		<ul className='result-images'>
 			{galleryList &&
 				galleryList.map((artwork: Artwork) => (
 					<li className='thumbnail' key={artwork.id}>

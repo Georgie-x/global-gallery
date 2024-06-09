@@ -17,7 +17,7 @@ function Home() {
 					<option value='aic'>Best of the Art Museum of Chicago</option>
 					<option value='rijks'>Best of Rijksmuseum</option>
 				</select></div>
-				<a href='/search' className='searchLink'>
+				<a href='/search' className='search-link'>
 				Keyword search &raquo;
 			</a>
 			</section>

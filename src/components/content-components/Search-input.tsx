@@ -23,11 +23,11 @@ function SearchInput({ setKeyword, keyword }: SearchInputProps) {
 	}
 
 	return (
-		<section className='searchInput'>
+		<section className='search-input'>
 			<h2>Search</h2>
-			<form onSubmit={handleSubmit}>
+			<form onSubmit={handleSubmit} className="search-input-form">
 				<label htmlFor='keywordSearch'>Keyword: </label>
-				<input type='text' id='keywordSearch' name='keywordSearch' size={12}></input>
+				<input type='text' id='keywordSearch' name='keywordSearch'></input>
 				<button type='submit'>Search</button>
 			</form>
 			<a href='#' className='advancedSearch'>

@@ -17,7 +17,8 @@ export const apiAicKeywordSearch = async (keyword: string, pageNo: number) => {
 				const medium = secondResponse.data.data.medium_display
 				const image_url = aicImage(secondResponse.data.data.image_id)
 				const description = secondResponse.data.data.description
-				return { id, artist, image_url, origin, title, date, medium, description }
+				const more_info = `https://www.artic.edu/artworks/${id}`
+				return { id, artist, image_url, origin, title, date, medium, description, more_info }
 			})
 		)
 		const results = details

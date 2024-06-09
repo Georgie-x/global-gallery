@@ -22,7 +22,8 @@ export const apiRijksKeywordSearch = async (keyword: string, pageNo: number) => 
 				const date = secondResponse.data.artObject.dating.sortingDate
 				const medium = secondResponse.data.artObject.physicalMedium
 				const description = secondResponse.data.artObject.plaqueDescriptionEnglish
-				return { id, artist, image_url, origin, title, date, medium, description }
+				const more_info = secondResponse.data.artObject.links.web
+				return { id, artist, image_url, origin, title, date, medium, description, more_info }
 			})
 		)
 

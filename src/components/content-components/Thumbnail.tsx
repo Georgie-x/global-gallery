@@ -16,7 +16,7 @@ function Thumbnail({ artwork }: { artwork: Artwork }) {
 	return (
 		<>
 			<img
-				className='smallImage'
+				className='small-image'
 				src={artwork.image_url}
 				alt={artwork.alt_text}
 				onClick={handleImageClick}

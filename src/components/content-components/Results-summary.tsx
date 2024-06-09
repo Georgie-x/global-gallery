@@ -21,9 +21,9 @@ function ResultsSummary({
 		}
 	}, [])
 	return (
-		<section className='resultsSummary'>
+		<section className='results-summary'>
 			<h2>Results</h2>
-			<div className='numberOfResults'>
+			<div className='number-of-results'>
 				{resultsTotal > 2
 					? `Your search produced ${resultsTotal} results - select an image for more details`
 					: resultsTotal === 1
@@ -31,7 +31,7 @@ function ResultsSummary({
 					: "No art found"}
 			</div>
 			{resultsTotal > 2 && (
-				<a href='#' className='nextResultsLink' onClick={handleNextPage}>
+				<a href='#' className='next-results-link' onClick={handleNextPage}>
 					Next results &raquo;
 				</a>
 			)}

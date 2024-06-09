@@ -3,7 +3,7 @@ import { Thumbnail } from "./index"
 
 function ResultImages({ artList }: { artList: ArtList}) {
 	return (
-		<ul className='resultImages'>
+		<ul className='result-images'>
 			{artList &&
 				artList.map((artwork: Artwork) => (
 					<li className='thumbnail' key={artwork.id}>

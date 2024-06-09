@@ -10,6 +10,7 @@ export type Artwork = {
 	origin: string
 	alt_text: string
 	description: string
+	more_info: string
 }
 
 export type VoidFunction = () => void
