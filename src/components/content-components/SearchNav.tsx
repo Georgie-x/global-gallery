@@ -1,7 +1,15 @@
 import { useEffect } from "react"
-import { SetPageNo } from "../../utils/types"
+import { SetPageNo, VoidFunction } from "../../utils/types"
 
-function SearchNav({ pageNo, setPageNo }: { pageNo: number; setPageNo: SetPageNo }) {
+function SearchNav({
+	pageNo,
+	setPageNo,
+	handleClearSearch,
+}: {
+	pageNo: number
+	setPageNo: SetPageNo
+	handleClearSearch: VoidFunction
+}) {
 	const handleNextPage = () => {
 		const newPageNo = pageNo + 1
 		setPageNo(newPageNo)
@@ -30,7 +38,7 @@ function SearchNav({ pageNo, setPageNo }: { pageNo: number; setPageNo: SetPageNo
 					&laquo; Previous Page
 				</a>
 			)}
-			<a href='#' className='new-search-link'>
+			<a href='#' className='new-search-link' onClick={handleClearSearch}>
 				New Search
 			</a>
 			<a href='#' className='next-results-link' onClick={handleNextPage}>

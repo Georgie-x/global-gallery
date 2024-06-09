@@ -1,22 +1,22 @@
-import { GallerySummary, GalleryImages } from "./index"
-import { ArtList } from "../../utils/types"
-import { useState, useEffect } from "react"
-import { loadGallery } from "../../utils/storage"
+import { GallerySummary, GalleryImages } from "./index";
+import { ArtList } from "../../utils/types";
+import { useState, useEffect } from "react";
 
 function Gallery() {
-	const [galleryList, setGalleryList] = useState<ArtList>([])
+    const [galleryList, setGalleryList] = useState<ArtList>(() =>
+        JSON.parse(localStorage.getItem("galleryList") || "[]")
+    );
 
-	useEffect(() => {
-		const gallery = loadGallery()
-		setGalleryList(gallery)
-	}, [])
+    useEffect(() => {
+        localStorage.setItem("galleryList", JSON.stringify(galleryList));
+    }, [galleryList]);
 
-	return (
-		<>
-			<GallerySummary galleryList={galleryList} />
-			<GalleryImages galleryList={galleryList} />
-		</>
-	)
+    return (
+        <>
+            <GallerySummary galleryList={galleryList} />
+            <GalleryImages galleryList={galleryList} />
+        </>
+    );
 }
 
-export default Gallery
+export default Gallery;

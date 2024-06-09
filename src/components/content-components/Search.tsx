@@ -48,6 +48,21 @@ function Search() {
 		fetchData()
 	}, [keyword, pageNo])
 
+	useEffect(() => {
+        localStorage.setItem("keyword", keyword);
+    }, [keyword]);
+
+    const handleClearSearch = () => {
+        setKeyword("");
+        setArtList([]);
+        setResultsTotal(0);
+        setPageNo(1);
+        localStorage.removeItem("keyword");
+        localStorage.removeItem("artList");
+        localStorage.removeItem("resultsTotal");
+        localStorage.removeItem("pageNo");
+    };
+
 	return (
 		<>
 		<SearchInput setKeyword={setKeyword} keyword={keyword} />
@@ -55,9 +70,9 @@ function Search() {
 			<div className="loader">Loading...</div>
 		) : (
 			<>
-				<ResultsSummary resultsTotal={resultsTotal} />
+				{keyword && <ResultsSummary resultsTotal={resultsTotal} />}
 				<ResultImages artList={artList} />
-				{resultsTotal < 10 && <SearchNav pageNo={pageNo} setPageNo={setPageNo} />}
+				{resultsTotal > 10 && <SearchNav pageNo={pageNo} setPageNo={setPageNo} handleClearSearch={handleClearSearch}/>}
 			</>
 		)}
 		
