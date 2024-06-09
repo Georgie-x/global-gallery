@@ -134,9 +134,7 @@ section {
 	font-weight: 600;
 	padding: var(--small-gap);
 }
-.welcome {
-	display: flex;
-}
+
 .browse {
 	flex-direction: column;
 }
@@ -145,7 +143,7 @@ section {
 	justify-content: baseline;
 }
 input[type="text"] {
-	width: 20ch;
+	width: 16ch;
 	height: var(--big-gap);
 	padding: var(--mini-gap);
 	background-color: rgb(255, 255, 255);
@@ -234,8 +232,9 @@ input[type="text"] {
 	gap: var(--gap);
 	place-items: center;
 }
-.search-nav {
-	color: white;
+.next-results-link {
+	color: pink;
+	background-color: brown;
 }
 .thumbnail {
 	width: 200px;
