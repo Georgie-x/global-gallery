@@ -3,13 +3,14 @@ import Search from "./Search"
 import Gallery from "./Gallery"
 import Exhibition from "./Exhibition"
 import Error from "./Error"
-import SearchInput from "./Search-input"
-import ResultsSummary from "./Results-summary"
-import ResultImages from "./Result-images"
+import SearchInput from "./SearchInput"
+import ResultsSummary from "./ResultsSummary"
+import ResultImages from "./ResultImages"
 import Thumbnail from "./Thumbnail"
 import ArtDetail from "./ArtDetail"
-import GallerySummary from "./Gallery-summary"
-import GalleryImages from "./Gallery-images"
+import GallerySummary from "./GallerySummary"
+import GalleryImages from "./GalleryImages"
+import SearchNav from "./SearchNav"
 
 export {
 	Home,
@@ -24,4 +25,5 @@ export {
 	ArtDetail,
 	GallerySummary,
 	GalleryImages,
+	SearchNav
 }

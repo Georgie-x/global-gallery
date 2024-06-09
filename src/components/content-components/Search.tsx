@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import { SearchInput, ResultsSummary, ResultImages } from "./index"
+import { SearchInput, ResultsSummary, ResultImages, SearchNav } from "./index"
 import { ArtList, ResultsTotal } from "../../utils/types.ts"
 import { apiAicKeywordSearch } from "../../netlify/functions/apiAicKeywordSearch.ts"
 import { apiRijksKeywordSearch } from "../../netlify/functions/apiRijksKeywordSearch.ts"
@@ -47,8 +47,9 @@ function Search() {
 	return (
 		<>
 			<SearchInput setKeyword={setKeyword} keyword={keyword} />
-			<ResultsSummary resultsTotal={resultsTotal} setPageNo={setPageNo} />
+			<ResultsSummary resultsTotal={resultsTotal}  />
 			<ResultImages artList={artList} />
+			<SearchNav setPageNo={setPageNo} />
 		</>
 	)
 }
