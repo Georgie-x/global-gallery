@@ -3,7 +3,7 @@
 	--primary-medium: hsl(151, 50%, 20%);
 	--primary-dark: hsl(150, 75%, 5%);
 	--secondary-light: hsl(240, 100%, 85%);
-	--secondary-medium: hsl(240, 100%, 50%);
+	--secondary-medium: hsl(240, 100%, 70%);
 	--secondary-dark: hsl(240, 100%, 25%);
 	--banner: hsl(49, 47%, 84%);
 	--font-size-small: 1rem;
@@ -38,6 +38,16 @@
 		--font-size-large: 3rem;
 		--gap: 1rem;
 	}
+	.largeImage {
+		max-width: 600px;
+		max-height: 600px;
+		margin: auto;
+		padding: var(--gap);
+	}
+	.art-display {
+		max-height: 90vh;
+		max-width: 600px;
+	}
 }
 
 @media screen and (min-width: 1024px) {
@@ -45,6 +55,17 @@
 		--font-size-small: 1.4rem;
 		--font-size-medium: 1.8rem;
 		--font-size-large: 5rem;
+	}
+	.art-display {
+		max-height: 90vh;
+		max-width: 1024px;
+		background-color: var(--secondary-light);
+		display: grid;
+		grid-template-areas:
+			"largeImage fullDetails"
+			"addArt closeWindow";
+		grid-template-columns: 2fr 2fr;
+		grid-template-rows: 1fr auto;
 	}
 }
 
@@ -88,7 +109,7 @@ footer {
 	grid-area: footer;
 	background: var(--banner);
 	justify-content: center;
-	padding:var(--small-gap);
+	padding: var(--small-gap);
 }
 section {
 	width: 100%;
@@ -102,7 +123,7 @@ section {
 	border-radius: 0.1rem;
 }
 
-section browse{
+section browse {
 	flex-direction: column;
 }
 
@@ -129,26 +150,27 @@ section browse{
 	justify-content: center;
 	align-items: center;
 }
-.art-detail {
-	max-height: 90vh;
-	max-width: 1024px;
+.art-display {
+	max-height: 85vh;
+	max-width: 95vw;
 	background-color: var(--secondary-light);
 	display: grid;
+	gap: var(--gap);
 	grid-template-areas:
-		"largeImage fullDetails"
-		"addArt closeWindow";
-	grid-template-columns: 2fr 2fr;
-	grid-template-rows: 1fr auto;
+		"largeImage"
+		"fullDetails"
+		"detail-actions";
+	grid-template-columns: 1fr;
+	grid-template-rows: auto 1fr auto;
 }
-.art-detail button {
-	height: 40px;
-	width: 40px;
-	margin: var(--small-gap);
+.art-display button {
+	height: 30px;
+	width: 30px;
 }
 .largeImage {
 	grid-area: largeImage;
-	max-width: 600px;
-	max-height: 600px;
+	max-width: 90vw;
+	max-height: 90vh;
 	margin: auto;
 	padding: var(--gap);
 }
@@ -157,14 +179,15 @@ section browse{
 	padding: 1rem;
 	overflow-y: auto;
 }
-.addArt {
-	grid-area: addArt;
-	padding: var(--gap);
+.detail-actions {
+	grid-area: detail-actions;
+	display: flex;
+	justify-content: space-between;
+
 }
-.closeWindow {
-	text-align: end;
-	grid-area: closeWindow;
-	padding: var(--gap);
+.addArt, .closeWindow {
+	display: flex;
+	gap: var(--small-gap);
 }
 .smallImage {
 	max-width: 160px;
@@ -178,7 +201,6 @@ section browse{
 	outline: 1px solid var(--banner);
 	transition: 0.1s ease-in-out;
 	box-shadow: 4px 4px 32px var(--banner), -4px -4px 32px var(--banner);
-	
 }
 .resultImages {
 	width: 100%;
@@ -244,11 +266,9 @@ p {
 
 button {
 	font-size: var(--font-size-small);
-	margin-left: 0.3rem;
-	padding: 0.1rem 0.5rem;
-	background-color: var(--secondary-light);
+	background-color: var(--secondary-medium);
 	border-radius: 0.25rem;
-	border: 1px solid var(--secondary-medium);
+	border: 1px solid var(--secondary-dark);
 	display: inline;
 }
 

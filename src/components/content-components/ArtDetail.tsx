@@ -21,7 +21,7 @@ function ArtDetail({ artwork, onClose }: { artwork: Artwork; onClose: VoidFuncti
 	console.log(artwork)
 	return (
 		<div className='art-detail-container'>
-			<div className='art-detail'>
+			<div className='art-display'>
 				<img className='largeImage' src={artwork.image_url} alt={artwork.alt_text} />
 				<div className='fullDetails'>
 					<h3>Title</h3>
@@ -37,24 +37,25 @@ function ArtDetail({ artwork, onClose }: { artwork: Artwork; onClose: VoidFuncti
 					<h3>Description</h3>
 					<p>{artwork.description}</p>
 				</div>
+				<div className='detail-actions'>
+					<div className='addArt'>
+						{artworkInGallery ? (
+							<>
+								<button onClick={() => handleRemoveClick(artwork)}>-</button>
+								<p>Remove from your gallery</p>
+							</>
+						) : (
+							<>
+								<button onClick={() => handleAddClick(artwork)}>&#10003;</button>
+								<p>Add to your gallery</p>
+							</>
+						)}
+					</div>
 
-				<div className='addArt'>
-					{artworkInGallery ? (
-						<>
-							<button onClick={() => handleRemoveClick(artwork)}>-</button>
-							<p>Remove this artwork from your gallery</p>
-						</>
-					) : (
-						<>
-							<button onClick={() => handleAddClick(artwork)}>&#10003;</button>
-							<p>Add this artwork to your gallery</p>
-						</>
-					)}
-				</div>
-
-				<div className='closeWindow'>
-					<p>Close Window</p>
-					<button onClick={onClose}>&#10799;</button>
+					<div className='closeWindow'>
+						<p>Close Window</p>
+						<button onClick={onClose}>&#10799;</button>
+					</div>
 				</div>
 			</div>
 		</div>

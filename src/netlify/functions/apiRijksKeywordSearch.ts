@@ -6,8 +6,6 @@ export const apiRijksKeywordSearch = async (keyword: string, pageNo: number) => 
 	try {
 		const response = await axios.get(rijksKeywordSearch(keyword, pageNo))
 		const resultsTotal = response.data.count
-		console.log("rijks1", response)
-
 		const ids = response.data.artObjects.map((artwork: RijksSummary) => ({
 			id: artwork.objectNumber,
 			image_url: artwork.webImage.url,
@@ -24,16 +22,16 @@ export const apiRijksKeywordSearch = async (keyword: string, pageNo: number) => 
 				const date = secondResponse.data.artObject.dating.sortingDate
 				const medium = secondResponse.data.artObject.physicalMedium
 				const description = secondResponse.data.artObject.plaqueDescriptionEnglish
-
 				return { id, artist, image_url, origin, title, date, medium, description }
 			})
 		)
 
 		const results = details
-
-		console.log("rijksresults", results, resultsTotal)
 		return { results, resultsTotal }
 	} catch (error) {
-		console.error("Error fetching data:", error)
+		console.error("Rijksmuseum search API error", error)
+		const results: number[] = []
+		const resultsTotal = 0
+		return { results, resultsTotal }
 	}
 }

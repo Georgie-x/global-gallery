@@ -20,12 +20,12 @@ export const apiAicKeywordSearch = async (keyword: string, pageNo: number) => {
 				return { id, artist, image_url, origin, title, date, medium, description }
 			})
 		)
-
 		const results = details
-
-		console.log("aicresults", results, resultsTotal)
 		return { results, resultsTotal }
 	} catch (error) {
-		console.error("Error fetching data:", error)
+		console.error("AIC search API error", error)
+		const results: number[] = []
+		const resultsTotal = 0
+		return { results, resultsTotal }
 	}
 }
