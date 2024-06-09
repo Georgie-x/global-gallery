@@ -11,7 +11,7 @@ function GallerySummary({ galleryList }: { galleryList: ArtList }) {
 					? `Your gallery contains 1 artwork!`
 					: "No art found"}
 			</div>
-			{galleryList.length === 0 ? <a href='/search' className='Curate Exhibition'>
+			{galleryList.length === 0 ? <a href='/search' className='add-art-link'>
 				Add art to gallery &raquo;
 			</a> : <a href='/exhibition' className='curate-exhibition'>
 				Curate Exhibition &raquo;

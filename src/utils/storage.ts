@@ -1,12 +1,8 @@
 import { Artwork, ArtList } from "./types"
 
 export function loadGallery(): ArtList {
-	let galleryString = sessionStorage.getItem("galleryList")
-	let gallery: Artwork[] = []
-	if (galleryString) {
-		gallery = JSON.parse(galleryString)
-	}
-	return gallery
+	const storedGallery = sessionStorage.getItem("galleryList")
+	return storedGallery ? JSON.parse(storedGallery) : []
 }
 
 export function saveGallery(gallery: ArtList) {
@@ -29,11 +25,11 @@ export function addToGallery(artwork: Artwork) {
 }
 
 export function removeFromGallery(artwork: Artwork) {
-    const gallery = loadGallery()
-    const updatedGallery = gallery.filter((item: Artwork) => item.id !== artwork.id);
-    if (updatedGallery.length !== gallery.length) {
-      saveGallery(updatedGallery);
-    } else {
-      console.log("Artwork not in gallery");
-    }
-  }
+	const gallery = loadGallery()
+	const updatedGallery = gallery.filter((item: Artwork) => item.id !== artwork.id)
+	if (updatedGallery.length !== gallery.length) {
+		saveGallery(updatedGallery)
+	} else {
+		console.log("Artwork not in gallery")
+	}
+}

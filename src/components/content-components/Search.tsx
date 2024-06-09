@@ -5,15 +5,15 @@ import { apiAicKeywordSearch } from "../../netlify/functions/apiAicKeywordSearch
 import { apiRijksKeywordSearch } from "../../netlify/functions/apiRijksKeywordSearch.ts"
 
 function Search() {
-	const [keyword, setKeyword] = useState<string>(() => localStorage.getItem("keyword") || "")
+	const [keyword, setKeyword] = useState<string>(() => sessionStorage.getItem("keyword") || "")
 	const [artList, setArtList] = useState<ArtList>(() =>
-		JSON.parse(localStorage.getItem("artList") || "[]")
+		JSON.parse(sessionStorage.getItem("artList") || "[]")
 	)
 	const [resultsTotal, setResultsTotal] = useState<ResultsTotal>(() =>
-		parseInt(localStorage.getItem("resultsTotal") || "0")
+		parseInt(sessionStorage.getItem("resultsTotal") || "0")
 	)
 	const [pageNo, setPageNo] = useState<number>(() =>
-		parseInt(localStorage.getItem("pageNo") || "1")
+		parseInt(sessionStorage.getItem("pageNo") || "1")
 	)
 	const [isLoading, setIsLoading] = useState<boolean>(false)
 
@@ -49,7 +49,7 @@ function Search() {
 	}, [keyword, pageNo])
 
 	useEffect(() => {
-        localStorage.setItem("keyword", keyword);
+        sessionStorage.setItem("keyword", keyword);
     }, [keyword]);
 
     const handleClearSearch = () => {
@@ -57,10 +57,10 @@ function Search() {
         setArtList([]);
         setResultsTotal(0);
         setPageNo(1);
-        localStorage.removeItem("keyword");
-        localStorage.removeItem("artList");
-        localStorage.removeItem("resultsTotal");
-        localStorage.removeItem("pageNo");
+        sessionStorage.removeItem("keyword");
+        sessionStorage.removeItem("artList");
+        sessionStorage.removeItem("resultsTotal");
+        sessionStorage.removeItem("pageNo");
     };
 
 	return (
