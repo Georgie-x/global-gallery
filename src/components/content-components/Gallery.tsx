@@ -4,6 +4,7 @@ import ImageGrid from "./ImageGrid.tsx"
 function Gallery() {
 	const { galleryList } = useGallery()
 	console.log("galleryList", galleryList)
+	console.log("direct gallery",sessionStorage.getItem("galleryList"))
 	return (
 		<>
 			<section className='gallery-summary'>
