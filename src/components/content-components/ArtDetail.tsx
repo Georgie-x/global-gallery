@@ -1,20 +1,27 @@
 import { Artwork, VoidFunction } from "../../utils/types.ts"
-import { addToGallery, removeFromGallery, artInGallery } from "../../utils/storage.ts"
+import { saveGallery, artInGallery } from "../../utils/storage.ts"
 import { useGallery } from "../../contexts/GalleryContext.tsx"
 
 function ArtDetail({ artwork, onClose }: { artwork: Artwork; onClose: VoidFunction }) {
-	const { galleryList } = useGallery()
-	
+	const { galleryList, setGalleryList } = useGallery()
 
 	const handleAddClick = (artwork: Artwork) => {
-		addToGallery(artwork)
-		onClose()
-	}
-	const handleRemoveClick = (artwork: Artwork) => {
-		removeFromGallery(artwork)
+		setGalleryList((prevList) => {
+			const newList = [...prevList, artwork]
+			saveGallery(newList)
+			return newList
+		})
 		onClose()
 	}
 
+	const handleRemoveClick = (artwork: Artwork) => {
+		setGalleryList((prevList) => {
+			const newList = prevList.filter((art) => art.id !== artwork.id)
+			saveGallery(newList)
+			return newList
+		})
+		onClose()
+	}
 	return (
 		<div className='art-detail-container'>
 			<div className='art-display'>
@@ -65,7 +72,7 @@ function ArtDetail({ artwork, onClose }: { artwork: Artwork; onClose: VoidFuncti
 				</div>
 				<div className='detail-actions'>
 					<div className='add-art'>
-						{artInGallery(artwork, galleryList)? (
+						{artInGallery(artwork, galleryList) ? (
 							<>
 								<button onClick={() => handleRemoveClick(artwork)}>-</button>
 								<p>Remove from your gallery</p>

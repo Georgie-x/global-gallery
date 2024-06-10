@@ -108,6 +108,7 @@ footer {
 	display: flex;
 	width: 100%;
 	grid-area: footer;
+	gap: var(--gap);
 	background: var(--banner);
 	justify-content: center;
 	padding: var(--small-gap);
