@@ -1,13 +1,12 @@
 import { Thumbnail } from "./index"
 import { Artwork } from "../../utils/types"
-import {useGallery} from '../../contexts/GalleryContext.ts'
+import { useGallery } from "../../contexts/GalleryContext.tsx"
 
 function Gallery() {
 	const { galleryList } = useGallery()
 
 	return (
 		<>
-			return (
 			<section className='gallery-summary'>
 				<h2>Gallery</h2>
 				<div className='number-of-artworks'>
@@ -35,7 +34,6 @@ function Gallery() {
 						</li>
 					))}
 			</ul>
-			)
 		</>
 	)
 }

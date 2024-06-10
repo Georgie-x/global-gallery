@@ -18,7 +18,7 @@ function ArtDetail({ artwork, onClose }: { artwork: Artwork; onClose: VoidFuncti
 		onClose()
 	}
 
-	console.log(artwork)
+	
 	return (
 		<div className='art-detail-container'>
 			<div className='art-display'>

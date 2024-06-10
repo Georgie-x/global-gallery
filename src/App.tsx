@@ -1,5 +1,5 @@
 import { Access, Header, Content, Footer } from "./components/layout-components/index.js"
-import { GalleryProvider } from "./contexts/GalleryContext.ts"
+import { GalleryProvider } from "./contexts/GalleryContext.tsx"
 
 function App() {
 	sessionStorage.setItem("galleryList", JSON.stringify([]))

@@ -20,7 +20,7 @@ export function addToGallery(artwork: Artwork) {
 		gallery.push(artwork)
 		saveGallery(gallery)
 	} else {
-		console.log("Artwork already exists in gallery")
+		console.error("Artwork already exists in gallery")
 	}
 }
 
@@ -30,6 +30,6 @@ export function removeFromGallery(artwork: Artwork) {
 	if (updatedGallery.length !== gallery.length) {
 		saveGallery(updatedGallery)
 	} else {
-		console.log("Artwork not in gallery")
+		console.error("Artwork not in gallery")
 	}
 }

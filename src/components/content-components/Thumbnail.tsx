@@ -3,6 +3,7 @@ import { Artwork } from "../../utils/types.ts"
 import { ArtDetail } from "./index"
 
 function Thumbnail({ artwork }: { artwork: Artwork }) {
+	
 	const [showArtDetails, setShowArtDetails] = useState<boolean>(false)
 
 	const handleImageClick = () => {
