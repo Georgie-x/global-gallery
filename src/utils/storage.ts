@@ -1,8 +1,9 @@
 import { Artwork, ArtList } from "./types"
 
 export function loadGallery(): ArtList {
-	const storedGallery = sessionStorage.getItem("galleryList")
-	return storedGallery ? JSON.parse(storedGallery) : []
+	const gallery = sessionStorage.getItem("galleryList")
+	console.log(gallery)
+	return gallery ? JSON.parse(gallery) : []
 }
 
 export function saveGallery(gallery: ArtList) {

@@ -1,9 +1,9 @@
 import { ArtList, Artwork } from "../../utils/types.ts"
 import { Thumbnail } from "./index"
 
-function ResultImages({ artList }: { artList: ArtList}) {
+function ImageGrid({ artList }: { artList: ArtList }) {
 	return (
-		<ul className='result-images'>
+		<ul className='image-grid'>
 			{artList &&
 				artList.map((artwork: Artwork) => (
 					<li className='thumbnail' key={artwork.id}>
@@ -14,4 +14,4 @@ function ResultImages({ artList }: { artList: ArtList}) {
 	)
 }
 
-export default ResultImages
+export default ImageGrid

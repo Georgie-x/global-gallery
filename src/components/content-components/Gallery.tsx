@@ -1,10 +1,9 @@
-import { Thumbnail } from "./index"
-import { Artwork } from "../../utils/types"
 import { useGallery } from "../../contexts/GalleryContext.tsx"
+import ImageGrid from "./ImageGrid.tsx"
 
 function Gallery() {
 	const { galleryList } = useGallery()
-
+	console.log(galleryList)
 	return (
 		<>
 			<section className='gallery-summary'>
@@ -26,14 +25,7 @@ function Gallery() {
 					</a>
 				)}
 			</section>
-			<ul className='result-images'>
-				{galleryList &&
-					galleryList.map((artwork: Artwork) => (
-						<li className='thumbnail' key={artwork.id}>
-							<Thumbnail artwork={artwork} />
-						</li>
-					))}
-			</ul>
+			{galleryList && <ImageGrid artList={galleryList} />}
 		</>
 	)
 }

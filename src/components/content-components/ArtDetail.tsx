@@ -1,24 +1,20 @@
 import { Artwork, VoidFunction } from "../../utils/types.ts"
-import { useState } from "react"
-import { addToGallery, removeFromGallery, artInGallery, loadGallery } from "../../utils/storage.ts"
+import { addToGallery, removeFromGallery, artInGallery } from "../../utils/storage.ts"
+import { useGallery } from "../../contexts/GalleryContext.tsx"
 
 function ArtDetail({ artwork, onClose }: { artwork: Artwork; onClose: VoidFunction }) {
-	const [artworkInGallery, setArtworkInGallery] = useState<boolean>(
-		artInGallery(artwork, loadGallery())
-	)
+	const { galleryList } = useGallery()
+	
 
 	const handleAddClick = (artwork: Artwork) => {
 		addToGallery(artwork)
-		setArtworkInGallery(true)
 		onClose()
 	}
 	const handleRemoveClick = (artwork: Artwork) => {
 		removeFromGallery(artwork)
-		setArtworkInGallery(false)
 		onClose()
 	}
 
-	
 	return (
 		<div className='art-detail-container'>
 			<div className='art-display'>
@@ -69,7 +65,7 @@ function ArtDetail({ artwork, onClose }: { artwork: Artwork; onClose: VoidFuncti
 				</div>
 				<div className='detail-actions'>
 					<div className='add-art'>
-						{artworkInGallery ? (
+						{artInGallery(artwork, galleryList)? (
 							<>
 								<button onClick={() => handleRemoveClick(artwork)}>-</button>
 								<p>Remove from your gallery</p>
