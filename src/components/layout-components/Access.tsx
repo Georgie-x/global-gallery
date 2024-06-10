@@ -1,6 +1,6 @@
 function Access() {
     return (
-      <a href="/home" className="skip-to-content">
+      <a href="/welcome" className="skip-to-content">
         Skip to Content
       </a>
     );

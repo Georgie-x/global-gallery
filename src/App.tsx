@@ -2,17 +2,17 @@ import { Access, Header, Content, Footer } from "./components/layout-components/
 import { GalleryProvider } from "./contexts/GalleryContext.tsx"
 
 function App() {
-	sessionStorage.setItem("galleryList", JSON.stringify([]))
 	return (
-		<GalleryProvider>
+		<>
 			<Access />
-
-			<div className='layout-container'>
-				<Header />
-				<Content />
-				<Footer />
-			</div>
-		</GalleryProvider>
+			<GalleryProvider>
+				<div className='layout-container'>
+					<Header />
+					<Content />
+					<Footer />
+				</div>
+			</GalleryProvider>
+		</>
 	)
 }
 

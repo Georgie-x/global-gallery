@@ -13,7 +13,6 @@ function Nav() {
 				<li>
 					<Link to='/gallery'>Gallery</Link>
 				</li>
-
 				<li>
 					<Link to='/exhibition'>Exhibition</Link>
 				</li>

@@ -34,4 +34,7 @@ export type RijksSummary = {
 	}
 }
 
-
+export type SearchInputProps = {
+	keyword: string
+	setKeyword: VoidFunction
+}

@@ -3,7 +3,7 @@ import ImageGrid from "./ImageGrid.tsx"
 
 function Gallery() {
 	const { galleryList } = useGallery()
-	console.log(galleryList)
+	console.log("galleryList", galleryList)
 	return (
 		<>
 			<section className='gallery-summary'>
