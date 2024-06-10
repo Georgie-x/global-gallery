@@ -29,7 +29,7 @@ function SearchNav({
 		if (prevPageNo) {
 			setPageNo(parseInt(prevPageNo))
 		}
-	}, [setPageNo])
+	}, [])
 
 	return (
 		<nav className='search-nav'>

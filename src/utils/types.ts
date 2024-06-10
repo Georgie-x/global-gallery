@@ -34,7 +34,9 @@ export type RijksSummary = {
 	}
 }
 
+export type SetKeywordFunction = (keyword: string) => void
+
 export type SearchInputProps = {
-	keyword: string
-	setKeyword: VoidFunction
+  keyword: string
+  setKeyword: SetKeywordFunction
 }

@@ -2,7 +2,6 @@ import { Artwork, ArtList } from "./types"
 
 export function loadGallery(): ArtList {
 	const gallery = sessionStorage.getItem("galleryList")
-	console.log(gallery)
 	return gallery ? JSON.parse(gallery) : []
 }
 

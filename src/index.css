@@ -2,18 +2,19 @@
 	--primary-light: hsl(150, 50%, 30%);
 	--primary-medium: hsl(151, 50%, 20%);
 	--primary-dark: hsl(150, 75%, 5%);
-	--secondary-light: hsl(240, 100%, 85%);
-	--secondary-medium: hsl(240, 100%, 70%);
-	--secondary-dark: hsl(240, 100%, 25%);
+	--secondary-light: hsl(230, 90%, 90%);
+	--secondary-medium: hsl(230, 100%, 70%);
+	--secondary-dark: hsl(230, 100%, 45%);
 	--banner: hsl(51, 100%, 97%);
 	--font-size-small: 1.1rem;
-	--font-size-medium: 1.6rem;
+	--font-size-medium: 1.4rem;
 	--font-size-large: 3rem;
 	--shadow: rgba(0, 0, 0, 0.5);
 	--gap: 0.75rem;
 	--small-gap: 0.5rem;
 	--big-gap: 2rem;
 	--mini-gap: 0.2rem;
+	--mega-gap: 5rem;
 
 	background-color: var(--primary-light);
 	color: var(--text);
@@ -49,13 +50,14 @@
 		max-height: 90vh;
 		max-width: 600px;
 	}
+
 }
 
 @media screen and (min-width: 1024px) {
 	:root {
 		--font-size-small: 1.4rem;
 		--font-size-medium: 1.8rem;
-		--font-size-large: 5rem;
+		--font-size-large: 4.5rem;
 	}
 	.art-display {
 		max-height: 90vh;
@@ -142,13 +144,16 @@ section {
 .search-input-form {
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: baseline;
+	align-items: center;
 }
 input[type="text"] {
-	width: 16ch;
+	flex: 1;
 	height: var(--big-gap);
-	padding: var(--mini-gap);
-	background-color: rgb(255, 255, 255);
+	max-width: 16ch;
+	padding: var(--mini-gap) var(--small-gap);
+	background-color: var(--secondary-light);
+	border-radius: var(--mini-gap);
+	border: 1px solid var(--secondary-dark);
 	font-family: inherit;
 	margin: 0 var(--small-gap);
 }
@@ -283,7 +288,6 @@ h1 {
 h2 {
 	font-size: var(--font-size-medium);
 	font-weight: 600;
-	padding-bottom: var(--mini-gap);
 }
 h3 {
 	font-size: var(--font-size-small);
@@ -302,12 +306,16 @@ button {
 	padding: var(--mini-gap) var(--small-gap);
 }
 
+button:hover {
+	outline: 2px solid var(--shadow);
+}
+
 ul li {
 	list-style: none;
 }
 
 a {
-	color: var(--secondary-medium);
+	color: var(--secondary-dark);
 	text-decoration: none;
 }
 a:hover {

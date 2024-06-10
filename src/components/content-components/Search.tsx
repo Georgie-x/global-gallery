@@ -4,36 +4,49 @@ import { ArtList, ResultsTotal } from "../../utils/types.ts"
 import { apiAicKeywordSearch } from "../../netlify/functions/apiAicKeywordSearch.ts"
 import { apiRijksKeywordSearch } from "../../netlify/functions/apiRijksKeywordSearch.ts"
 
+type SearchState = {
+	keyword: string
+	artList: ArtList
+	resultsTotal: ResultsTotal
+	pageNo: number
+}
+
+const initialState: SearchState = {
+	keyword: "",
+	artList: [],
+	resultsTotal: 0,
+	pageNo: 1,
+}
+
 function Search() {
-	const [keyword, setKeyword] = useState<string>(() => sessionStorage.getItem("keyword") || "")
-	const [artList, setArtList] = useState<ArtList>(() =>
-		JSON.parse(sessionStorage.getItem("artList") || "[]")
-	)
-	const [resultsTotal, setResultsTotal] = useState<ResultsTotal>(() =>
-		parseInt(sessionStorage.getItem("resultsTotal") || "0")
-	)
-	const [pageNo, setPageNo] = useState<number>(() =>
-		parseInt(sessionStorage.getItem("pageNo") || "1")
-	)
+	const [searchState, setSearchState] = useState<SearchState>(() => {
+		const storedState = sessionStorage.getItem("searchState")
+		return storedState ? JSON.parse(storedState) : initialState
+	})
 	const [isLoading, setIsLoading] = useState<boolean>(false)
 
 	useEffect(() => {
+		sessionStorage.setItem("searchState", JSON.stringify(searchState))
+	}, [searchState])
+
+	useEffect(() => {
 		const fetchData = async () => {
-			if (keyword) {
+			if (searchState.keyword) {
 				setIsLoading(true)
 				try {
 					const [aicResponse, rijksResponse] = await Promise.all([
-						apiAicKeywordSearch(keyword, pageNo),
-						apiRijksKeywordSearch(keyword, pageNo),
+						apiAicKeywordSearch(searchState.keyword, searchState.pageNo),
+						apiRijksKeywordSearch(searchState.keyword, searchState.pageNo),
 					])
 
 					if (aicResponse && rijksResponse) {
 						const combinedArtList = [...aicResponse.results, ...rijksResponse.results]
 						const combinedResultsTotal = aicResponse.resultsTotal + rijksResponse.resultsTotal
-						setArtList(combinedArtList)
-						setResultsTotal(combinedResultsTotal)
-						sessionStorage.setItem("artList", JSON.stringify(combinedArtList))
-						sessionStorage.setItem("resultsTotal", combinedResultsTotal.toString())
+						setSearchState((prev) => ({
+							...prev,
+							artList: combinedArtList,
+							resultsTotal: combinedResultsTotal,
+						}))
 					} else {
 						console.error("API calls cannot be combined")
 					}
@@ -46,37 +59,40 @@ function Search() {
 		}
 
 		fetchData()
-	}, [keyword, pageNo])
+	}, [searchState.keyword, searchState.pageNo])
 
-	useEffect(() => {
-        sessionStorage.setItem("keyword", keyword);
-    }, [keyword]);
+	const handleClearSearch = () => {
+		setSearchState(initialState)
+		sessionStorage.removeItem("searchState")
+	}
 
-    const handleClearSearch = () => {
-        setKeyword("");
-        setArtList([]);
-        setResultsTotal(0);
-        setPageNo(1);
-        sessionStorage.removeItem("keyword");
-        sessionStorage.removeItem("artList");
-        sessionStorage.removeItem("resultsTotal");
-        sessionStorage.removeItem("pageNo");
-    };
+	const setKeyword = (keyword: string) => {
+		setSearchState((prev) => ({ ...prev, keyword, pageNo: 1, artList: [], resultsTotal: 0 }))
+	}
+
+	const setPageNo = (pageNo: number) => {
+		setSearchState((prev) => ({ ...prev, pageNo }))
+	}
 
 	return (
 		<>
-		<SearchInput setKeyword={setKeyword} keyword={keyword} />
-		{isLoading ? (
-			<div className="loader">Loading...</div>
-		) : (
-			<>
-				{keyword && <ResultsSummary resultsTotal={resultsTotal} />}
-				<ResultImages artList={artList} />
-				{resultsTotal > 10 && <SearchNav pageNo={pageNo} setPageNo={setPageNo} handleClearSearch={handleClearSearch}/>}
-			</>
-		)}
-		
-	</>
+			<SearchInput setKeyword={setKeyword} keyword={searchState.keyword} />
+			{isLoading ? (
+				<div className='loader'>Loading...</div>
+			) : (
+				<>
+					{searchState.keyword && <ResultsSummary resultsTotal={searchState.resultsTotal} />}
+					<ResultImages artList={searchState.artList} />
+					{searchState.resultsTotal > 10 && (
+						<SearchNav
+							pageNo={searchState.pageNo}
+							setPageNo={setPageNo}
+							handleClearSearch={handleClearSearch}
+						/>
+					)}
+				</>
+			)}
+		</>
 	)
 }
 
