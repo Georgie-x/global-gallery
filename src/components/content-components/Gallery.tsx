@@ -1,10 +1,9 @@
-import { useGallery } from "../../contexts/GalleryContext.tsx"
-import ImageGrid from "./ImageGrid.tsx"
+import { useGallery } from "../../contexts/GalleryContext"
+import ImageGrid from "./ImageGrid"
 
 function Gallery() {
 	const { galleryList } = useGallery()
-	console.log("galleryList", galleryList)
-	console.log("direct gallery",sessionStorage.getItem("galleryList"))
+
 	return (
 		<>
 			<section className='gallery-summary'>

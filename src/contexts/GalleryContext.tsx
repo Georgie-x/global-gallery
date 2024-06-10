@@ -19,11 +19,28 @@ type GalleryContextValue = {
 const GalleryListContext = createContext<GalleryContextValue | undefined>(undefined)
 
 export const GalleryProvider: FC<PropsWithChildren> = ({ children }) => {
-	const [galleryList, setGalleryList] = useState(loadGallery() || [])
+	const [galleryList, setGalleryList] = useState<ArtList>(loadGallery() || [])
 
 	useEffect(() => {
 		saveGallery(galleryList)
 	}, [galleryList])
+
+	useEffect(() => {
+		const handleStorageChange = (event: StorageEvent) => {
+			if (event.key === "gallery") {
+				console.log("Handling storage change")
+				setGalleryList(loadGallery() || [])
+			}
+		}
+
+		console.log("Adding storage event listener")
+		window.addEventListener("storage", handleStorageChange)
+
+		return () => {
+			console.log("Removing storage event listener")
+			window.removeEventListener("storage", handleStorageChange)
+		}
+	}, [])
 
 	const contextValue = {
 		galleryList,
