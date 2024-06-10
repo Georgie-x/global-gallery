@@ -8,8 +8,6 @@ import ResultsSummary from "./ResultsSummary"
 import ResultImages from "./ResultImages"
 import Thumbnail from "./Thumbnail"
 import ArtDetail from "./ArtDetail"
-import GallerySummary from "./GallerySummary"
-import GalleryImages from "./GalleryImages"
 import SearchNav from "./SearchNav"
 
 export {
@@ -23,7 +21,5 @@ export {
 	ResultImages,
 	Thumbnail,
 	ArtDetail,
-	GallerySummary,
-	GalleryImages,
 	SearchNav
 }

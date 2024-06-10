@@ -34,7 +34,4 @@ export type RijksSummary = {
 	}
 }
 
-export type SearchInputProps = {
-	setKeyword: (keyword: string) => void
-	keyword: string
-}
+
