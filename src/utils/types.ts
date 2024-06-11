@@ -5,7 +5,7 @@ export type Artwork = {
 	image_url: string
 	title: string | null
 	artist: string | null
-	date: number
+	date: number | string | null
 	medium: string
 	origin: string
 	description: string | null
@@ -25,7 +25,7 @@ export type KeywordResponse =
 	| undefined
 
 export type RijksSummary = {
-	id: string
+	id: string | number
 	image_url: string
 	objectNumber: string
 	webImage: {
@@ -36,6 +36,6 @@ export type RijksSummary = {
 export type SetKeywordFunction = (keyword: string) => void
 
 export type SearchInputProps = {
-  keyword: string
-  setKeyword: SetKeywordFunction
+	keyword: string
+	setKeyword: SetKeywordFunction
 }
