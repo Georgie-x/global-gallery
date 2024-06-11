@@ -1,15 +1,14 @@
 export type ArtList = Artwork[]
 
 export type Artwork = {
-	id: string
+	id: string | number
 	image_url: string
-	title: string
-	artist: string
-	date: string
+	title: string | null
+	artist: string | null
+	date: number
 	medium: string
 	origin: string
-	alt_text: string
-	description: string
+	description: string | null
 	more_info: string
 }
 

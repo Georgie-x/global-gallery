@@ -9,6 +9,8 @@ import ResultImages from "./ImageGrid"
 import Thumbnail from "./Thumbnail"
 import ArtDetail from "./ArtDetail"
 import SearchNav from "./SearchNav"
+import ExhibitionSummary from "./ExhibitionSummary"
+import ExhibitionImages from "./ExhibitionImages"
 
 export {
 	Home,
@@ -21,5 +23,7 @@ export {
 	ResultImages,
 	Thumbnail,
 	ArtDetail,
-	SearchNav
+	SearchNav,
+	ExhibitionSummary,
+	ExhibitionImages
 }

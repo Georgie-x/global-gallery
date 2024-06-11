@@ -121,7 +121,7 @@ section {
 	flex-wrap: wrap;
 	gap: var(--small-gap) var(--big-gap);
 	justify-content: space-between;
-	align-items: baseline;
+	align-items: center;
 	background-color: var(--banner);
 	box-shadow: 0px 4px 8px var(--shadow);
 	padding: var(--gap);
@@ -138,9 +138,6 @@ section {
 	padding: var(--small-gap);
 }
 
-.browse {
-	flex-direction: column;
-}
 .search-input-form {
 	display: flex;
 	flex-wrap: wrap;

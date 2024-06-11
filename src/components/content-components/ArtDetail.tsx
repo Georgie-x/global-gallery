@@ -25,7 +25,7 @@ function ArtDetail({ artwork, onClose }: { artwork: Artwork; onClose: VoidFuncti
 	return (
 		<div className='art-detail-container'>
 			<div className='art-display'>
-				<img className='large-image' src={artwork.image_url} alt={artwork.alt_text} />
+				<img className='large-image' src={artwork.image_url} />
 				<div className='full-details'>
 					{artwork.title && (
 						<>

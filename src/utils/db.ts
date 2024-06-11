@@ -1,4 +1,6 @@
-export const demoGall1 = [
+import { ArtList } from "./types"
+
+export const demoGall1:ArtList = [
     {
       "id": 158,
       "artist": "Ancient Greek",
@@ -56,4 +58,49 @@ export const demoGall1 = [
     }
   ]
 
-  export const demoGall2 = 1
+  export const demoGall2:ArtList = [
+    {
+        "id": 45336,
+        "artist": "Narcissa Niblack Thorne",
+        "image_url": "https://www.artic.edu/iiif/2/65f6e7bb-0ede-2d3c-715a-b166d252b136/full/600,/0/default.jpg",
+        "origin": "United States",
+        "title": "A8: Massachusetts Bedroom, c. 1801",
+        "date": 1940,
+        "medium": "Miniature room, mixed media",
+        "description": null,
+        "more_info": "https://www.artic.edu/artworks/45336"
+    },
+    {
+        "id": 61616,
+        "artist": "Georges Seurat",
+        "image_url": "https://www.artic.edu/iiif/2/081be15c-8812-c174-eeb2-cf318a2e67cf/full/600,/0/default.jpg",
+        "origin": "France",
+        "title": "Oil Sketch for \"A Sunday on La Grande Jatte — 1884\"",
+        "date": 1884,
+        "medium": "Oil on panel",
+        "description": "<p>This small oil on thin wood panel is one of over 20 painted studies Georges Seurat made for <a href=\"https://www.artic.edu/artworks/27992/a-sunday-on-la-grande-jatte-1884\"><em>A Sunday on La Grande Jatte—1884</em></a> . Although at first glance its composition seems similar to the finished canvas, its 20 or more figures have little to do with the final version. The trio at right with an elderly seated figure, for example, was completely rethought in the completed work, where they are replaced by a man in a top hat and a woman walking a monkey on a leash. This ironic combination of grand solemnity and wry humor is totally absent from the sketch’s awkwardly positioned figures.</p>\n",
+        "more_info": "https://www.artic.edu/artworks/61616"
+    },
+    {
+        "id": 150773,
+        "artist": "Georges Seurat",
+        "image_url": "https://www.artic.edu/iiif/2/8769be30-7bda-37f2-16a8-30e5396d47dc/full/600,/0/default.jpg",
+        "origin": "France",
+        "title": "Seated Woman with a Parasol (study for La Grande Jatte)",
+        "date": 1885,
+        "medium": "Black Conté crayon on ivory laid paper",
+        "description": "<p>During 1884 and 1885, Georges Seurat was hard at work on the most ambitious painting of his career, <em>A Sunday on La Grande Jatte—1884</em>, now a centerpiece of the Art Institute’s collection of 19th-century French painting. The artist’s genesis of this large canvas involved many preparatory studies, which fall primarily into two groups: small compositional sketches and color studies on wooden panels, and nuanced Conté crayon drawings that explore both the empty landscape and the shapes of specific figures or figural groups. In this contemplative drawing, Seurat developed the expressive contours of the seated female figure holding a parasol that would ultimately occupy the center of the finished painting.</p>\n",
+        "more_info": "https://www.artic.edu/artworks/150773"
+    },
+    {
+        "id": "RP-P-H-H-558",
+        "artist": "Antonio Tempesta",
+        "image_url": "https://lh3.googleusercontent.com/kabZMRRYPFPW3D0V_RwSXdnlNON4VRnJTcLs97v2m3EBOmTv5cqC5ZTaoxwz6APyEKgz0M68eGaAuY2-BYruT4Iffe_ad8iG-K9QWEM=s0",
+        "origin": "Italy",
+        "title": "Zeekalf",
+        "date": 1650,
+        "medium": "etching",
+        "description": null,
+        "more_info": "none"
+    }
+]
