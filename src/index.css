@@ -50,7 +50,6 @@
 		max-height: 90vh;
 		max-width: 600px;
 	}
-
 }
 
 @media screen and (min-width: 1024px) {
@@ -152,6 +151,18 @@ input[type="text"] {
 	border-radius: var(--mini-gap);
 	border: 1px solid var(--secondary-dark);
 	font-family: inherit;
+	margin: 0 var(--small-gap);
+}
+
+select {
+	position: relative;
+	font-family: inherit;
+	font-size: inherit;
+	height: var(--big-gap);
+	padding: var(--mini-gap) var(--small-gap);
+	background-color: var(--secondary-light);
+	border-radius: var(--mini-gap);
+	border: 1px solid var(--secondary-dark);
 	margin: 0 var(--small-gap);
 }
 

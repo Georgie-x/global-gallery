@@ -28,7 +28,7 @@ function Home() {
 				<h2>Discover art</h2>
 				<div className='presets'>
 					<label htmlFor='collections'>Browse collections: </label>
-					<select name='collections' id='collections' onChange={handleCollectionChange}>
+					<select className="select" name='collections' id='collections' onChange={handleCollectionChange}>
 						<option value='aic'>Best of the Art Museum of Chicago</option>
 						<option value='rijks'>Best of Rijksmuseum</option>
 					</select>

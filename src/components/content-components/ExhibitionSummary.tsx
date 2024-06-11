@@ -7,12 +7,12 @@ function ExhibitionSummary() {
 			<h2>Exhibition</h2>
 
 			{galleryList.length === 0 ? (
-				<div className="no art summary">
+				<>
 					<p>Add images to your gallery to curate an exhibition</p>
 					<a href='/search' className='curate-exhibition'>
 						Search artworks &raquo;
 					</a>
-				</div>
+				</>
 			) : (
 				<>
 					<p>Exhibition title</p>
