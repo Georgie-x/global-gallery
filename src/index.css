@@ -109,7 +109,7 @@ footer {
 	display: flex;
 	width: 100%;
 	grid-area: footer;
-	gap: var(--gap);
+	gap: var(--small-gap);
 	background: var(--banner);
 	justify-content: center;
 	padding: var(--small-gap);
@@ -159,11 +159,11 @@ select {
 	font-family: inherit;
 	font-size: inherit;
 	height: var(--big-gap);
-	padding: var(--mini-gap) var(--small-gap);
+	padding: var(--mini-gap);
 	background-color: var(--secondary-light);
 	border-radius: var(--mini-gap);
 	border: 1px solid var(--secondary-dark);
-	margin: 0 var(--small-gap);
+	
 }
 
 .art-detail-container {
@@ -194,8 +194,6 @@ select {
 }
 .art-display button {
 	font-size: var(--font-size-medium);
-	height: 40px;
-	width: 40px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -306,6 +304,7 @@ h3 {
 
 button {
 	font-size: var(--font-size-small);
+	height: var(--big-gap);
 	background-color: var(--secondary-medium);
 	border-radius: var(--mini-gap);
 	border: 1px solid var(--secondary-dark);

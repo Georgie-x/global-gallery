@@ -1,17 +1,17 @@
 import { useState, ChangeEvent } from "react"
 import { ArtList } from "../../utils/types"
-import { demoGall1, demoGall2 } from "../../utils/db"
+import { bestOfAic, bestOfRijks } from "../../utils/db"
 import ImageGrid from "./ImageGrid"
 
 function Home() {
-	const [collection, setCollection] = useState<ArtList>(demoGall1)
+	const [collection, setCollection] = useState<ArtList>(bestOfAic)
 
 	const handleCollectionChange = (e: ChangeEvent<HTMLSelectElement>) => {
 		const selectedValue = e.target.value
 		if (selectedValue === "aic") {
-			setCollection(demoGall1)
+			setCollection(bestOfAic)
 		} else if (selectedValue === "rijks") {
-			setCollection(demoGall2)
+			setCollection(bestOfRijks)
 		}
 	}
 
@@ -28,7 +28,12 @@ function Home() {
 				<h2>Discover art</h2>
 				<div className='presets'>
 					<label htmlFor='collections'>Browse collections: </label>
-					<select className="select" name='collections' id='collections' onChange={handleCollectionChange}>
+					<select
+						className='select'
+						name='collections'
+						id='collections'
+						onChange={handleCollectionChange}
+					>
 						<option value='aic'>Best of the Art Museum of Chicago</option>
 						<option value='rijks'>Best of Rijksmuseum</option>
 					</select>
