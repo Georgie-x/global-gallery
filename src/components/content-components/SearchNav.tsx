@@ -20,7 +20,7 @@ function SearchNav({ pageNo, setPageNo }: { pageNo: number; setPageNo: SetPageNo
 		<nav className='search-nav'>
 			{pageNo > 1 && (
 				<a href='#' className='prev-results-link' onClick={handlePrevPage}>
-					&laquo; Previous Page
+					&laquo; Last Page
 				</a>
 			)}
 			<a href='#' className='keywordSearch'>
