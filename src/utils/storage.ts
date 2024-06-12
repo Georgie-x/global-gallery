@@ -34,7 +34,7 @@ export function removeFromGallery(artwork: Artwork) {
 	}
 }
 
-export function loadKeyword(): string{
+export function loadKeyword(): string {
 	const keyword = sessionStorage.getItem("keyword")
 	return keyword ? JSON.parse(keyword) : ""
 }

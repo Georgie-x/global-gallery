@@ -1,7 +1,13 @@
 import { saveArtList, saveKeyword, savePageNo, saveResultsTotal } from "../../utils/storage"
 import { SearchInputProps } from "../../utils/types"
 
-function SearchInput({ setKeyword, keyword, setPageNo, setArtList, setResultsTotal }: SearchInputProps) {
+function SearchInput({
+	setKeyword,
+	keyword,
+	setPageNo,
+	setArtList,
+	setResultsTotal,
+}: SearchInputProps) {
 	function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
 		e.preventDefault()
 		const newKeyword = e.currentTarget.keywordSearch.value
@@ -9,9 +15,9 @@ function SearchInput({ setKeyword, keyword, setPageNo, setArtList, setResultsTot
 		saveKeyword(newKeyword)
 		setPageNo(1)
 		savePageNo(1)
-    setArtList([])
+		setArtList([])
 		saveArtList([])
-    setResultsTotal(0)
+		setResultsTotal(0)
 		saveResultsTotal(0)
 	}
 

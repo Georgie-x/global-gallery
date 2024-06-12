@@ -56,16 +56,6 @@
 		--font-size-medium: 1.8rem;
 		--font-size-large: 4rem;
 	}
-	.art-display {
-		max-height: 90vh;
-		max-width: 1024px;
-		display: grid;
-		grid-template-areas:
-			"large-image full-details"
-			"add-art close-window";
-		grid-template-columns: 2fr 2fr;
-		grid-template-rows: 1fr auto;
-	}
 }
 
 body {
@@ -73,12 +63,6 @@ body {
 	min-height: 100vh;
 	line-height: 1.6;
 	overflow-y: scroll;
-	-ms-overflow-style: none;
-	scrollbar-width: none;
-}
-
-body::-webkit-scrollbar {
-	display: none;
 }
 
 .layout-container {
@@ -88,6 +72,7 @@ body::-webkit-scrollbar {
 		"header"
 		"main"
 		"footer";
+	min-height: 100dvh;
 	min-height: 100vh;
 	width: 100%;
 }
@@ -175,6 +160,7 @@ select {
 .art-detail-container {
 	position: fixed;
 	background-color: var(--shadow);
+	height: 100dvh;
 	height: 100vh;
 	width: 100vw;
 	top: 0;
@@ -185,16 +171,9 @@ select {
 	z-index: 999;
 }
 
-.largeImage {
-	max-width: 600px;
-	max-height: 600px;
-	margin: auto;
-	padding: var(--gap);
-}
-
 .art-display {
-	max-width: 640px;
-	max-height: 100%;
+	max-width: 98vw;
+	max-height: 98vh;
 	background-color: var(--secondary-light);
 	display: grid;
 	padding: var(--gap);
@@ -206,6 +185,12 @@ select {
 	grid-template-columns: 1fr;
 	grid-template-rows: 1fr 1fr auto;
 }
+.art-display .large-image {
+	width: 90vw;
+	max-width: 600px;
+	max-height: 60vh;
+	margin: auto;
+}
 .art-display button {
 	font-size: var(--font-size-medium);
 	display: flex;
@@ -215,12 +200,16 @@ select {
 
 .large-image {
 	grid-area: large-image;
+	object-fit: contain;
+	height: auto;
 	max-width: 90vw;
 	max-height: 60vh;
 	margin: auto;
 }
+
 .full-details {
 	grid-area: full-details;
+	min-height: 20dvh;
 	min-height: 20vh;
 	max-width: 600px;
 	padding: var(--gap);
