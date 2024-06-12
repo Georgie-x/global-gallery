@@ -14,6 +14,14 @@ export type Artwork = {
 
 export type VoidFunction = () => void
 
+export type RijksSummary = {
+	id: string | number
+	image_url: string
+	objectNumber: string
+	webImage: {
+		url: string
+	}
+}
 
 export type SetKeyword = (keyword: string) => void
 export type SetPageNo = (pageNo: number) => void

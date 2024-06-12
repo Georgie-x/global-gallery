@@ -33,22 +33,20 @@
 	box-sizing: border-box;
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 540px) {
 	:root {
 		--font-size-small: 1.2rem;
 		--font-size-medium: 1.6rem;
 		--font-size-large: 3rem;
 		--gap: 1rem;
 	}
-	.largeImage {
-		max-width: 600px;
-		max-height: 600px;
-		margin: auto;
-		padding: var(--gap);
+	.image-grid {
+		padding: var(--big-gap);
+		gap: var(--big-gap);
 	}
-	.art-display {
-		max-height: 90vh;
-		max-width: 600px;
+	.thumbnail {
+		width: 180px;
+		height: 180px;
 	}
 }
 
@@ -102,8 +100,8 @@ main {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	padding: var(--gap);
 	gap: var(--gap);
+	padding: var(--gap) 0;
 }
 footer {
 	display: flex;
@@ -115,7 +113,7 @@ footer {
 	padding: var(--small-gap);
 }
 section {
-	width: 100%;
+	width: calc(100% - 2 * var(--gap));
 	display: flex;
 	flex-wrap: wrap;
 	gap: var(--small-gap) var(--big-gap);
@@ -163,7 +161,6 @@ select {
 	background-color: var(--secondary-light);
 	border-radius: var(--mini-gap);
 	border: 1px solid var(--secondary-dark);
-	
 }
 
 .art-detail-container {
@@ -178,9 +175,17 @@ select {
 	align-items: center;
 	z-index: 999;
 }
+
+.largeImage {
+	max-width: 600px;
+	max-height: 600px;
+	margin: auto;
+	padding: var(--gap);
+}
+
 .art-display {
-	max-height: 98%;
-	max-width: 98%;
+	max-width: 640px;
+	max-height: 100%;
 	background-color: var(--secondary-light);
 	display: grid;
 	padding: var(--gap);
@@ -190,7 +195,7 @@ select {
 		"full-details"
 		"detail-actions";
 	grid-template-columns: 1fr;
-	grid-template-rows: auto 1fr auto;
+	grid-template-rows: 1fr 1fr auto;
 }
 .art-display button {
 	font-size: var(--font-size-medium);
@@ -198,6 +203,7 @@ select {
 	justify-content: center;
 	align-items: center;
 }
+
 .large-image {
 	grid-area: large-image;
 	max-width: 90vw;
@@ -215,7 +221,6 @@ select {
 
 .detail-actions {
 	grid-area: detail-actions;
-	min-height: 6vh;
 	gap: var(--gap);
 	display: flex;
 	justify-content: space-between;
@@ -224,11 +229,13 @@ select {
 .add-art {
 	grid-area: add-art;
 	display: flex;
+	align-items: center;
 	gap: var(--small-gap);
 }
 .close-window {
 	grid-area: close-window;
 	display: flex;
+	align-items: center;
 	gap: var(--small-gap);
 	text-align: end;
 }
@@ -240,8 +247,6 @@ select {
 	height: 100%;
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-	padding: var(--gap);
-	gap: var(--gap);
 	place-items: center;
 }
 .search-nav {
@@ -259,8 +264,8 @@ select {
 }
 
 .thumbnail {
-	width: 200px;
-	height: 200px;
+	width: 175px;
+	height: 175px;
 	display: flex;
 	align-items: center;
 	justify-content: center;

@@ -23,7 +23,7 @@ function SearchInput({ setKeyword, keyword, setPageNo, setArtList, setResultsTot
 				<input type='text' id='keywordSearch' name='keywordSearch' defaultValue={keyword} />
 				<button type='submit'>Search</button>
 			</form>
-			<a href='#' className='advancedSearch'>
+			<a href='#' className='advanced-search'>
 				Advanced search &raquo;
 			</a>
 		</section>
