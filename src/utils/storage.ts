@@ -33,3 +33,39 @@ export function removeFromGallery(artwork: Artwork) {
 		console.error("Artwork not in gallery")
 	}
 }
+
+export function loadKeyword(): string{
+	const keyword = sessionStorage.getItem("keyword")
+	return keyword ? JSON.parse(keyword) : ""
+}
+
+export function loadResultsTotal() {
+	const resultsTotal = sessionStorage.getItem("resultsTotal")
+	return resultsTotal ? JSON.parse(resultsTotal) : 0
+}
+
+export function loadArtList() {
+	const artList = sessionStorage.getItem("artList")
+	return artList ? JSON.parse(artList) : []
+}
+
+export function loadPageNo() {
+	const pageNo = sessionStorage.getItem("pageNo")
+	return pageNo ? JSON.parse(pageNo) : 0
+}
+
+export function saveKeyword(keyword: string) {
+	sessionStorage.setItem("keyword", JSON.stringify(keyword))
+}
+
+export function saveResultsTotal(resultsTotal: number) {
+	sessionStorage.setItem("resultsTotal", JSON.stringify(resultsTotal))
+}
+
+export function saveArtList(artList: ArtList) {
+	sessionStorage.setItem("artList", JSON.stringify(artList))
+}
+
+export function savePageNo(pageNo: number) {
+	sessionStorage.setItem("pageNo", JSON.stringify(pageNo))
+}

@@ -3,50 +3,32 @@ import { SearchInput, ResultsSummary, ResultImages, SearchNav } from "./index"
 import { ArtList, ResultsTotal } from "../../utils/types.ts"
 import { apiAicKeywordSearch } from "../../netlify/functions/apiAicKeywordSearch.ts"
 import { apiRijksKeywordSearch } from "../../netlify/functions/apiRijksKeywordSearch.ts"
-
-type SearchState = {
-	keyword: string
-	artList: ArtList
-	resultsTotal: ResultsTotal
-	pageNo: number
-}
-
-const initialState: SearchState = {
-	keyword: "",
-	artList: [],
-	resultsTotal: 0,
-	pageNo: 1,
-}
+import { loadArtList, loadKeyword, loadPageNo, loadResultsTotal, saveArtList, saveResultsTotal } from "../../utils/storage.ts"
 
 function Search() {
-	const [searchState, setSearchState] = useState<SearchState>(() => {
-		const storedState = sessionStorage.getItem("searchState")
-		return storedState ? JSON.parse(storedState) : initialState
-	})
+	const [keyword, setKeyword] = useState<string>(() => loadKeyword())
+	const [artList, setArtList] = useState<ArtList>(() => loadArtList())
+	const [pageNo, setPageNo] = useState<number>(() => loadPageNo())
+	const [resultsTotal, setResultsTotal] = useState<ResultsTotal>(() => loadResultsTotal())
 	const [isLoading, setIsLoading] = useState<boolean>(false)
 
 	useEffect(() => {
-		sessionStorage.setItem("searchState", JSON.stringify(searchState))
-	}, [searchState])
-
-	useEffect(() => {
 		const fetchData = async () => {
-			if (searchState.keyword) {
+			if (keyword) {
 				setIsLoading(true)
 				try {
 					const [aicResponse, rijksResponse] = await Promise.all([
-						apiAicKeywordSearch(searchState.keyword, searchState.pageNo),
-						apiRijksKeywordSearch(searchState.keyword, searchState.pageNo),
+						apiAicKeywordSearch(keyword, pageNo),
+						apiRijksKeywordSearch(keyword, pageNo),
 					])
 
 					if (aicResponse && rijksResponse) {
 						const combinedArtList = [...aicResponse.results, ...rijksResponse.results]
 						const combinedResultsTotal = aicResponse.resultsTotal + rijksResponse.resultsTotal
-						setSearchState((prev) => ({
-							...prev,
-							artList: combinedArtList,
-							resultsTotal: combinedResultsTotal,
-						}))
+						setArtList(combinedArtList)
+						saveArtList(combinedArtList)
+						setResultsTotal(combinedResultsTotal)
+						saveResultsTotal(combinedResultsTotal)
 					} else {
 						console.error("API calls cannot be combined")
 					}
@@ -57,39 +39,24 @@ function Search() {
 				}
 			}
 		}
-
 		fetchData()
-	}, [searchState.keyword, searchState.pageNo])
-
-	const handleClearSearch = () => {
-		setSearchState(initialState)
-		sessionStorage.removeItem("searchState")
-	}
-
-	const setKeyword = (keyword: string) => {
-		setSearchState((prev) => ({ ...prev, keyword, pageNo: 1, artList: [], resultsTotal: 0 }))
-	}
-
-	const setPageNo = (pageNo: number) => {
-		setSearchState((prev) => ({ ...prev, pageNo }))
-	}
+	}, [keyword, pageNo])
 
 	return (
 		<>
-			<SearchInput setKeyword={setKeyword} keyword={searchState.keyword} />
+			<SearchInput
+				setKeyword={setKeyword}
+				keyword={keyword}
+				pageNo={pageNo}
+				setPageNo={setPageNo}
+			/>
 			{isLoading ? (
 				<div className='loader'>Loading...</div>
 			) : (
 				<>
-					{searchState.keyword && <ResultsSummary resultsTotal={searchState.resultsTotal} />}
-					<ResultImages artList={searchState.artList} />
-					{searchState.resultsTotal > 10 && (
-						<SearchNav
-							pageNo={searchState.pageNo}
-							setPageNo={setPageNo}
-							handleClearSearch={handleClearSearch}
-						/>
-					)}
+					{keyword && <ResultsSummary resultsTotal={resultsTotal} />}
+					<ResultImages artList={artList} />
+					{resultsTotal > 10 && <SearchNav pageNo={pageNo} setPageNo={setPageNo} />}
 				</>
 			)}
 		</>

@@ -14,8 +14,6 @@ export type Artwork = {
 
 export type VoidFunction = () => void
 
-export type SetPageNo = (pageNo: number) => void
-
 export type ResultsTotal = number
 
 export type KeywordResponse =
@@ -34,8 +32,12 @@ export type RijksSummary = {
 }
 
 export type SetKeywordFunction = (keyword: string) => void
+export type SetPageNoFunction = (pageNo: number) => void
+
 
 export type SearchInputProps = {
 	keyword: string
 	setKeyword: SetKeywordFunction
+	pageNo: number
+	setPageNo: SetPageNoFunction
 }
