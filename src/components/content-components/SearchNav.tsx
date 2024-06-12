@@ -1,27 +1,20 @@
-import { useEffect } from "react"
-import { SetPageNoFunction } from "../../utils/types"
+import { SetPageNo } from "../../utils/types"
+import { savePageNo } from "../../utils/storage"
 
-function SearchNav({ pageNo, setPageNo }: { pageNo: number; setPageNo: SetPageNoFunction }) {
+function SearchNav({ pageNo, setPageNo }: { pageNo: number; setPageNo: SetPageNo }) {
 	const handleNextPage = () => {
 		const newPageNo = pageNo + 1
 		setPageNo(newPageNo)
-		sessionStorage.setItem("pageNo", newPageNo.toString())
+		savePageNo(newPageNo)
 	}
 
 	const handlePrevPage = () => {
 		if (pageNo > 1) {
 			const newPageNo = pageNo - 1
 			setPageNo(newPageNo)
-			sessionStorage.setItem("pageNo", newPageNo.toString())
+			savePageNo(newPageNo)
 		}
 	}
-
-	useEffect(() => {
-		const prevPageNo = sessionStorage.getItem("pageNo")
-		if (prevPageNo) {
-			setPageNo(parseInt(prevPageNo))
-		}
-	}, [])
 
 	return (
 		<nav className='search-nav'>
@@ -30,7 +23,7 @@ function SearchNav({ pageNo, setPageNo }: { pageNo: number; setPageNo: SetPageNo
 					&laquo; Previous Page
 				</a>
 			)}
-			<a href='#' className='new-search-link'>
+			<a href='#' className='keywordSearch'>
 				New Search
 			</a>
 			<a href='#' className='next-results-link' onClick={handleNextPage}>

@@ -14,30 +14,19 @@ export type Artwork = {
 
 export type VoidFunction = () => void
 
-export type ResultsTotal = number
 
-export type KeywordResponse =
-	| {
-			artList: ArtList
-	  }
-	| undefined
-
-export type RijksSummary = {
-	id: string | number
-	image_url: string
-	objectNumber: string
-	webImage: {
-		url: string
-	}
-}
-
-export type SetKeywordFunction = (keyword: string) => void
-export type SetPageNoFunction = (pageNo: number) => void
-
+export type SetKeyword = (keyword: string) => void
+export type SetPageNo = (pageNo: number) => void
+export type SetResultsTotal = (resultsTotal:number) => void
+export type SetArtList = (artList : ArtList) => void
 
 export type SearchInputProps = {
 	keyword: string
-	setKeyword: SetKeywordFunction
+	setKeyword: SetKeyword
 	pageNo: number
-	setPageNo: SetPageNoFunction
+	setPageNo: SetPageNo
+	resultsTotal: number
+	setResultsTotal: SetResultsTotal
+	artList: ArtList
+	setArtList: SetArtList
 }
