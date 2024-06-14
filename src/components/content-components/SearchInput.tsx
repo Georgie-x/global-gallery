@@ -11,14 +11,15 @@ function SearchInput({
 	function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
 		e.preventDefault()
 		const newKeyword = e.currentTarget.keywordSearch.value
-		setKeyword(newKeyword)
-		saveKeyword(newKeyword)
-		setPageNo(1)
-		savePageNo(1)
 		setArtList([])
 		saveArtList([])
 		setResultsTotal(0)
 		saveResultsTotal(0)
+		setKeyword(newKeyword)
+		saveKeyword(newKeyword)
+		setPageNo(1)
+		savePageNo(1)
+		
 	}
 
 	return (

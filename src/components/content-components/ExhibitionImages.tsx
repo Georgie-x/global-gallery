@@ -2,7 +2,11 @@ function ExhibitionImages() {
 
 
 
-    return<div></div>
+    return<div className="carousel">
+
+
+
+    </div>
 }
 
 export default ExhibitionImages
