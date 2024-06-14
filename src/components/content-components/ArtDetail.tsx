@@ -1,6 +1,8 @@
 import { Artwork, VoidFunction } from "../../utils/types.ts"
 import { saveGallery, artInGallery } from "../../utils/storage.ts"
 import { useGallery } from "../../contexts/GalleryContext.tsx"
+import FullDetail from "./FullDetail.tsx";
+
 
 function ArtDetail({ artwork, onClose }: { artwork: Artwork; onClose: VoidFunction }) {
 	const { galleryList, setGalleryList } = useGallery()
@@ -26,50 +28,7 @@ function ArtDetail({ artwork, onClose }: { artwork: Artwork; onClose: VoidFuncti
 		<div className='art-detail-container'>
 			<div className='art-display'>
 				<img className='large-image' src={artwork.image_url} />
-				<div className='full-details'>
-					{artwork.title && (
-						<>
-							<h3>Title</h3>
-							<p>{artwork.title}</p>
-						</>
-					)}
-					{artwork.artist && (
-						<>
-							<h3>Artist</h3>
-							<p>{artwork.artist}</p>
-						</>
-					)}
-					{artwork.origin && (
-						<>
-							<h3>Origin</h3>
-							<p>{artwork.origin}</p>
-						</>
-					)}
-					{artwork.date && (
-						<>
-							<h3>Date</h3>
-							<p>{artwork.date}</p>
-						</>
-					)}
-					{artwork.medium && (
-						<>
-							<h3>Medium</h3>
-							<p>{artwork.medium}</p>
-						</>
-					)}
-					{artwork.description && (
-						<>
-							<h3>Description</h3>
-							<p>{artwork.description}</p>
-						</>
-					)}
-					{artwork.more_info && (
-						<>
-							<h3>More Info</h3>
-							<a href={artwork.more_info}>{artwork.more_info}</a>
-						</>
-					)}
-				</div>
+				<FullDetail artwork={artwork} />
 				<div className='detail-actions'>
 					<div className='add-art'>
 						{artInGallery(artwork, galleryList) ? (

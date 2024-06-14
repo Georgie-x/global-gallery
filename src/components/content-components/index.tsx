@@ -11,6 +11,7 @@ import ArtDetail from "./ArtDetail"
 import SearchNav from "./SearchNav"
 import ExhibitionSummary from "./ExhibitionSummary"
 import ExhibitionImages from "./ExhibitionImages"
+import FullDetail from "./FullDetail"
 
 export {
 	Home,
@@ -25,5 +26,6 @@ export {
 	ArtDetail,
 	SearchNav,
 	ExhibitionSummary,
-	ExhibitionImages
+	ExhibitionImages,
+	FullDetail
 }

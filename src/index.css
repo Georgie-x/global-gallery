@@ -354,6 +354,47 @@ a:hover {
 	}
 }
 
+.swiper {
+	width: calc(100vw - 2 * var(--gap));
+	height: 70vh;
+	border: 1px solid red;
+}
+.swiper-wrapper {
+	background-color: darkorange;
+	width: 600px;
+}
+.swiper-slide {
+	display: flex;
+	justify-content: center;
+	background-color: brown;
+}
+.plaque{
+	grid-area: "plaque";
+	display:flex;
+	justify-content: center;
+	margin-bottom: 0;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+	background-image: radial-gradient(var(--banner), hsla(60, 56%, 91%, 0));
+	border-radius: 50%;
+	height: 60px;
+	width: 60px;
+	font-weight: 700;
+	top: auto;
+	bottom: 20px;
+
+
+}
+
+figure{
+display:grid;
+grid-template-areas: 
+"large-image"
+"plaque";
+grid-template-rows: 90% 10%;
+}
 /* ACCESSIBILITY */
 
 .skip-to-content {

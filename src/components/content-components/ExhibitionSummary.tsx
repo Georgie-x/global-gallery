@@ -1,28 +1,28 @@
-import { useGallery } from "../../contexts/GalleryContext"
+import { ChangeEvent } from "react";
 
-function ExhibitionSummary() {
-	const { galleryList } = useGallery()
-	return (
-		<section className='exhibition-summary'>
-			<h2>Exhibition</h2>
-
-			{galleryList.length === 0 ? (
-				<>
-					<p>Add images to your gallery to curate an exhibition</p>
-					<a href='/search' className='curate-exhibition'>
-						Search artworks &raquo;
-					</a>
-				</>
-			) : (
-				<>
-					<p>Exhibition title</p>
-					<a href='/exhibition' className='curate-exhibition-options'>
-						Options &raquo;
-					</a>
-				</>
-			)}
-		</section>
-	)
+function ExhibitionSummary({
+    handleExhibitionChange,
+}: {
+    handleExhibitionChange: (e: ChangeEvent<HTMLSelectElement>) => void;
+}) {
+    return (
+        <section className='exhibition-summary'>
+            <h2>Exhibition</h2>
+            <div className='exhibition'>
+                <label htmlFor='exhibition'>Browse exhibition: </label>
+                <select
+                    className='select'
+                    name='exhibition'
+                    id='exhibition'
+                    onChange={handleExhibitionChange}
+                >
+                    <option value='gallery'>Your Gallery</option>
+                    <option value='aic'>Best of the Art Museum of Chicago</option>
+                    <option value='rijks'>Best of Rijksmuseum</option>
+                </select>
+            </div>
+        </section>
+    )
 }
 
-export default ExhibitionSummary
+export default ExhibitionSummary;
