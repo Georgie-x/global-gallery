@@ -9,7 +9,6 @@ function ExhibitionSummary({
         <section className='exhibition-summary'>
             <h2>Exhibition</h2>
             <div className='exhibition'>
-                <label htmlFor='exhibition'>Browse exhibition: </label>
                 <select
                     className='select'
                     name='exhibition'

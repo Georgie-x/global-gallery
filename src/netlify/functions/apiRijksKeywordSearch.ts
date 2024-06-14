@@ -24,8 +24,9 @@ export const apiRijksKeywordSearch = async (keyword: string, pageNo: number) => 
 				const description = secondResponse.data.artObject.plaqueDescriptionEnglish
 					? secondResponse.data.artObject.plaqueDescriptionEnglish.replace(/(<([^>]+)>)/gi, "")
 					: ""
+				const alt_text = "Artwork image from Rijksmuseum"
 				const more_info = secondResponse.data.artObject.links.web
-				return { id, artist, image_url, origin, title, date, medium, description, more_info }
+				return { id, artist, image_url, alt_text, origin, title, date, medium, description, more_info }
 			})
 		)
 

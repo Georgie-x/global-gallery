@@ -46,6 +46,8 @@ function FullDetail({ artwork }: { artwork: Artwork }) {
 						<a href={artwork.more_info}>{artwork.more_info}</a>
 					</>
 				)}
+				
+
 			</div>
 		</>
 	)

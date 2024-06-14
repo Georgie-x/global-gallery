@@ -33,12 +33,11 @@
 	box-sizing: border-box;
 }
 
-@media screen and (min-width: 540px) {
+@media screen and (min-width: 768px) {
 	:root {
 		--font-size-small: 1.2rem;
 		--font-size-medium: 1.6rem;
 		--font-size-large: 3.5rem;
-		--gap: 1rem;
 	}
 	.image-grid {
 		padding: var(--big-gap);
@@ -47,6 +46,9 @@
 	.thumbnail {
 		width: 180px;
 		height: 180px;
+	}
+	figure img {
+		box-shadow: 2px 6px 0.5rem var(--shadow), -2px 6px 0.5rem var(--shadow);
 	}
 }
 
@@ -59,8 +61,8 @@
 }
 
 body {
-	min-height: 100dvh;
-	min-height: 100vh;
+	height: 100dvh;
+	height: 100vh;
 	line-height: 1.6;
 	overflow-y: scroll;
 }
@@ -202,9 +204,10 @@ select {
 	grid-area: large-image;
 	object-fit: contain;
 	height: auto;
-	max-width: 90vw;
-	max-height: 60vh;
+	max-height: 50vh;
 	margin: auto;
+
+	max-width: 768px;
 }
 
 .full-details {
@@ -354,25 +357,27 @@ a:hover {
 	}
 }
 
+/* CAROUSEL */
+
 .swiper {
 	width: calc(100vw - 2 * var(--gap));
+	max-width: 800px;
 	height: 70vh;
-	border: 1px solid red;
 }
 .swiper-wrapper {
-	background-color: darkorange;
-	width: 600px;
+	width: calc(100vw - 2 * var(--gap));
+	max-width: 800px;
 }
 .swiper-slide {
 	display: flex;
 	justify-content: center;
-	background-color: brown;
 }
-.plaque{
+.plaque {
 	grid-area: "plaque";
-	display:flex;
+	display: flex;
 	justify-content: center;
-	margin-bottom: 0;
+	align-items: center;
+	font-size: var(--font-size-small);
 }
 
 .swiper-button-prev,
@@ -383,18 +388,36 @@ a:hover {
 	width: 60px;
 	font-weight: 700;
 	top: auto;
-	bottom: 20px;
-
-
+	bottom: 10px;
+	padding: var(--big-gap);
 }
 
-figure{
-display:grid;
-grid-template-areas: 
-"large-image"
-"plaque";
-grid-template-rows: 90% 10%;
+figure {
+	height: 100%;
+	width: 100%;
+	display: grid;
+	grid-template-areas:
+		"large-image"
+		"plaque";
+	grid-template-rows: 85% 15%;
 }
+
+figure img {
+	border: 6px outset gold;
+}
+
+figcaption {
+	background-color: goldenrod;
+	border: 2px inset gold;
+	display: inline;
+	width: 180px;
+	height: 20px;
+	font-size: var(--font-size-small);
+	box-shadow: 1px 3px 0.5rem var(--shadow), -1px 3px 0.5rem var(--shadow);
+	margin: auto;
+	padding: 1.5rem;
+}
+
 /* ACCESSIBILITY */
 
 .skip-to-content {

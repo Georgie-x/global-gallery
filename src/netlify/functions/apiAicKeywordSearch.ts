@@ -19,9 +19,10 @@ export const apiAicKeywordSearch = async (keyword: string, pageNo: number) => {
 				const description = secondResponse.data.data.description
 					? secondResponse.data.data.description.replace(/(<([^>]+)>)/gi, "")
 					: ""
+					const alt_text = secondResponse.data.data.medium_display || "Artwork image from the Art Insitute of Chicago"
 				const more_info = `https://www.artic.edu/artworks/${id}`
 				if (!image_url) return null
-				return { id, artist, image_url, origin, title, date, medium, description, more_info }
+				return { id, artist, image_url, alt_text, origin, title, date, medium, description, more_info }
 			})
 		)
 		const filteredDetails = details.filter((detail) => detail !== null)
