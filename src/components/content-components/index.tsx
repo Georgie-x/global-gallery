@@ -5,7 +5,7 @@ import Exhibition from "./Exhibition"
 import Error from "./Error"
 import SearchInput from "./SearchInput"
 import ResultsSummary from "./ResultsSummary"
-import ResultImages from "./ImageGrid"
+import ImageGrid from "./ImageGrid"
 import Thumbnail from "./Thumbnail"
 import ArtDetail from "./ArtDetail"
 import SearchNav from "./SearchNav"
@@ -21,7 +21,7 @@ export {
 	Error,
 	SearchInput,
 	ResultsSummary,
-	ResultImages,
+	ImageGrid,
 	Thumbnail,
 	ArtDetail,
 	SearchNav,

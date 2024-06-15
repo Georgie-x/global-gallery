@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import { SearchInput, ResultsSummary, ResultImages, SearchNav } from "./index"
+import { SearchInput, ResultsSummary, SearchNav, ImageGrid } from "./index"
 import { ArtList } from "../../utils/types.ts"
 import { apiAicKeywordSearch } from "../../netlify/functions/apiAicKeywordSearch.ts"
 import { apiRijksKeywordSearch } from "../../netlify/functions/apiRijksKeywordSearch.ts"
@@ -64,10 +64,10 @@ function Search() {
 			/>
 			{keyword && <ResultsSummary resultsTotal={resultsTotal} />}
 			{isLoading ? (
-				<div className='loader'>Loading...</div>
+				<div className='loader'></div>
 			) : (
 				<>
-					<ResultImages artList={artList} />
+					<ImageGrid artList={artList} />
 					{resultsTotal > 10 && <SearchNav pageNo={pageNo} setPageNo={setPageNo} />}
 				</>
 			)}

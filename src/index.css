@@ -203,11 +203,10 @@ select {
 .large-image {
 	grid-area: large-image;
 	object-fit: contain;
-	height: auto;
+	
 	max-height: 50vh;
 	margin: auto;
-
-	max-width: 768px;
+	max-width: 95%;
 }
 
 .full-details {
@@ -255,7 +254,6 @@ select {
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
-
 	padding: var(--gap);
 }
 
@@ -360,17 +358,21 @@ a:hover {
 /* CAROUSEL */
 
 .swiper {
-	width: calc(100vw - 2 * var(--gap));
-	max-width: 800px;
-	height: 70vh;
+	width: 100vw;
+	max-width: 650px;
+	height: 65vh;
+	border:1px red solid;
 }
 .swiper-wrapper {
-	width: calc(100vw - 2 * var(--gap));
-	max-width: 800px;
+
+	max-width: 650px;
+	border:1px orange solid;
 }
 .swiper-slide {
+
 	display: flex;
 	justify-content: center;
+	border:1px yellow solid;
 }
 .plaque {
 	grid-area: "plaque";
@@ -384,11 +386,9 @@ a:hover {
 .swiper-button-next {
 	background-image: radial-gradient(var(--banner), hsla(60, 56%, 91%, 0));
 	border-radius: 50%;
-	height: 60px;
-	width: 60px;
 	font-weight: 700;
 	top: auto;
-	bottom: 10px;
+	bottom: var(--mini-gap);
 	padding: var(--big-gap);
 }
 
@@ -410,8 +410,8 @@ figcaption {
 	background-color: goldenrod;
 	border: 2px inset gold;
 	display: inline;
-	width: 180px;
-	height: 20px;
+	width: 150px;
+	height: 1rem;
 	font-size: var(--font-size-small);
 	box-shadow: 1px 3px 0.5rem var(--shadow), -1px 3px 0.5rem var(--shadow);
 	margin: auto;
