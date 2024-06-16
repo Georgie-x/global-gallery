@@ -30,6 +30,7 @@ function SearchInput({
 				<input type='text' id='keywordSearch' name='keywordSearch' defaultValue={keyword} />
 				<button type='submit'>Search</button>
 			</form>
+			<a href="/home">Browse &raquo;</a>
 		</section>
 	)
 }

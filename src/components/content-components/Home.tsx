@@ -17,7 +17,7 @@ function Home() {
 
 	return (
 		<>
-			<section className='welcome'>
+			<section className='welcome' id="welcome">
 				<h2>Welcome to Global Gallery!</h2>
 				<p>
 					Discover art from our collections around the World. Save artworks to your gallery and

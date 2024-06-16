@@ -43,7 +43,7 @@ function FullDetail({ artwork }: { artwork: Artwork }) {
 				{artwork.more_info && (
 					<>
 						<h3>More Info</h3>
-						<a href={artwork.more_info}>{artwork.more_info}</a>
+						<a href={artwork.more_info} target="_blank">{artwork.more_info}</a>
 					</>
 				)}
 				

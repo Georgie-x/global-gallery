@@ -7,15 +7,14 @@
 	--secondary-dark: hsl(230, 100%, 45%);
 	--banner: hsl(51, 100%, 97%);
 	--font-size-small: 1.1rem;
-	--font-size-medium: 1.4rem;
-	--font-size-large: 3rem;
+	--font-size-medium: 1.3rem;
+	--font-size-large: 2.6rem;
 	--shadow: rgba(0, 0, 0, 0.5);
 	--gap: 0.75rem;
 	--small-gap: 0.5rem;
 	--big-gap: 2rem;
 	--mini-gap: 0.2rem;
 	--mega-gap: 5rem;
-
 	background-color: var(--primary-light);
 	color: var(--text);
 	font-size: 16px;
@@ -31,6 +30,13 @@
 *::before,
 *::after {
 	box-sizing: border-box;
+}
+
+h1,
+h2,
+a,
+li {
+	line-height: 1.2;
 }
 
 @media screen and (min-width: 768px) {
@@ -106,7 +112,9 @@ footer {
 	gap: var(--small-gap);
 	background: var(--banner);
 	justify-content: center;
+	align-items: center;
 	padding: var(--small-gap);
+	box-shadow: 0px -4px 8px var(--shadow);
 }
 section {
 	width: calc(100% - 2 * var(--gap));
@@ -128,7 +136,7 @@ section {
 	margin: auto;
 	font-size: var(--font-size-small);
 	font-weight: 600;
-	padding: var(--small-gap);
+	padding: var(--mini-gap);
 }
 
 .search-input-form {
@@ -203,7 +211,7 @@ select {
 .large-image {
 	grid-area: large-image;
 	object-fit: contain;
-	
+
 	max-height: 50vh;
 	margin: auto;
 	max-width: 95%;
@@ -361,18 +369,13 @@ a:hover {
 	width: 100vw;
 	max-width: 650px;
 	height: 65vh;
-	border:1px red solid;
 }
 .swiper-wrapper {
-
 	max-width: 650px;
-	border:1px orange solid;
 }
 .swiper-slide {
-
 	display: flex;
 	justify-content: center;
-	border:1px yellow solid;
 }
 .plaque {
 	grid-area: "plaque";
@@ -384,7 +387,7 @@ a:hover {
 
 .swiper-button-prev,
 .swiper-button-next {
-	background-image: radial-gradient(var(--banner), hsla(60, 56%, 91%, 0));
+	background-image: radial-gradient(var(--banner), var(--primary-light));
 	border-radius: 50%;
 	font-weight: 700;
 	top: auto;
@@ -411,7 +414,7 @@ figcaption {
 	border: 2px inset gold;
 	display: inline;
 	width: 150px;
-	height: 1rem;
+	height: var(--gap);
 	font-size: var(--font-size-small);
 	box-shadow: 1px 3px 0.5rem var(--shadow), -1px 3px 0.5rem var(--shadow);
 	margin: auto;

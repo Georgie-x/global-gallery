@@ -28,16 +28,13 @@ export const GalleryProvider: FC<PropsWithChildren> = ({ children }) => {
 	useEffect(() => {
 		const handleStorageChange = (event: StorageEvent) => {
 			if (event.key === "gallery") {
-				console.log("Handling storage change")
 				setGalleryList(loadGallery() || [])
 			}
 		}
 
-		console.log("Adding storage event listener")
 		window.addEventListener("storage", handleStorageChange)
 
 		return () => {
-			console.log("Removing storage event listener")
 			window.removeEventListener("storage", handleStorageChange)
 		}
 	}, [])
