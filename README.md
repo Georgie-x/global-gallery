@@ -36,7 +36,7 @@ Install Node, npm/homebrew and git:
 
     Download and install Node.js and npm from https://nodejs.org/en/
 
-    Download and install Git from [https://git-scm.com/downloads](https://git-scm.com/downloads)
+    Download and install Git from [install git](https://git-scm.com/downloads)
 
 2. CHOOSE PROJECT FOLDER
 
