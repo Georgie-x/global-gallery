@@ -32,7 +32,7 @@ The terminal displays the current folder path, here you can use the commands:
 
 3. OPEN PROJECT CODE
 Once you have navigated to the project folder you can use the commands: 
-    'git clone https://github.com/Georgie-x/launchpad-project.git' to copy the project repo to your device
+    'git clone https://github.com/Georgie-x/global-gallery.git' to copy the project repo to your device
     'cd launchpad-project' to navigate to the folder
     'code .' to open a new window with the project code
 
