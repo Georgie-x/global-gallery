@@ -68,7 +68,7 @@ function Search() {
 			) : (
 				<>
 					<ImageGrid artList={artList} />
-					{resultsTotal > 10 && <SearchNav pageNo={pageNo} setPageNo={setPageNo} />}
+					{resultsTotal > 10 && <SearchNav pageNo={pageNo} setPageNo={setPageNo} artList={artList} />}
 				</>
 			)}
 		</>

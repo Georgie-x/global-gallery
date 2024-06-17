@@ -58,35 +58,35 @@ Once you have navigated to the project folder you can use the commands:
 
 'git clone https://github.com/Georgie-x/global-gallery.git' to copy the project repo to your device
 
-'cd launchpad-project' to navigate to the folder
-
-'code .' to open a new window with the project code
+'cd global-gallery' to navigate to the folder
 
 
 4. ADD SOFTWARE DEPENDENCIES
 
-In a new terminal in the project window type: 
+In the project window terminal type: 
 
 'npm install' to install additional required software
 
 
-5. PREPARE ENVIRONMENTAL VARIBLES <br />
+5. PREPARE ENVIRONMENTAL VARIBLES 
 
 This project connects with Rijksmuseum and an API key (password) is needed to collect information from their website:
 
-create a Rijks Studio account to obtain an API key https://www.rijksmuseum.nl/en/rijksstudio
+create a Rijks Studio account to obtain an API key https://www.rijksmuseum.nl/en/rijksstudio. Validate your email address and go to the Rijksmuseum settings>advanced settings to get your key.
 
 A ".gitignore" file needs be added to protect information in sensitive files:
 
-type 'touch .gitignore' 
+type 'touch .gitignore' OR 'New-Item -ItemType file -Name .gitignore' for Windows
 
 in the .gitignore file add '.env' to a new line 
 
 An "environmental varibles" file (.env) needs be added to ensure your API key is included, but remains private:
 
-type 'touch .env'
+type 'touch .env' OR 'New-Item -ItemType file -Name .env' for Windows
 
 in the .env file add the line 'VITE_RIJKS_API_KEY=your-api-key'
+
+save the changes to the VScode project with 'ctrl/cmd + S'
 
 
 6. RUN PROJECT CODE

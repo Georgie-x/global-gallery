@@ -1,8 +1,7 @@
 import { Artwork, VoidFunction } from "../../utils/types.ts"
 import { saveGallery, artInGallery } from "../../utils/storage.ts"
 import { useGallery } from "../../contexts/GalleryContext.tsx"
-import FullDetail from "./FullDetail.tsx";
-
+import FullDetail from "./FullDetail.tsx"
 
 function ArtDetail({ artwork, onClose }: { artwork: Artwork; onClose: VoidFunction }) {
 	const { galleryList, setGalleryList } = useGallery()
@@ -27,7 +26,7 @@ function ArtDetail({ artwork, onClose }: { artwork: Artwork; onClose: VoidFuncti
 	return (
 		<div className='art-detail-container'>
 			<div className='art-display'>
-				<img className='large-image' src={artwork.image_url} />
+				<img className='large-image' src={artwork.image_url} alt={artwork.alt_text} />
 				<FullDetail artwork={artwork} />
 				<div className='detail-actions'>
 					<div className='add-art'>
