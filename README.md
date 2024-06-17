@@ -16,11 +16,11 @@ Install Node, npm/homebrew and git:
 
 *LINUX*
 
-    type these commands in the terminal:
+type these commands in the terminal:
 
-    'sudo apt update'
+'sudo apt update'
 
-    'sudo apt install -g nodejs npm git' 
+'sudo apt install -g nodejs npm git' 
 
 *MAC*
 
@@ -34,9 +34,9 @@ Install Node, npm/homebrew and git:
 
 *WINDOWS*
 
-    Download and install Node.js and npm from https://nodejs.org/en/
+Download and install Node.js and npm from https://nodejs.org/en/
 
-    Download and install Git from [install git](https://git-scm.com/downloads)
+Download and install Git from https://git-scm.com/downloads
 
 2. CHOOSE PROJECT FOLDER
 
