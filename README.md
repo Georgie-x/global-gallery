@@ -70,7 +70,7 @@ In a new terminal in the project window type:
 'npm install' to install additional required software
 
 
-5. PREPARE ENVIRONMENTAL VARIBLES
+5. PREPARE ENVIRONMENTAL VARIBLES <br />
 
 This project connects with Rijksmuseum and an API key (password) is needed to collect information from their website:
 
