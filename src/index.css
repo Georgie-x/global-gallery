@@ -384,6 +384,9 @@ a:hover {
 	align-items: center;
 	font-size: var(--font-size-small);
 }
+.plaque:hover {
+	cursor: pointer;
+  }
 
 .swiper-button-prev,
 .swiper-button-next {

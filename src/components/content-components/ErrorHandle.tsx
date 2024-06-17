@@ -8,7 +8,7 @@ function ErrorHandle() {
 		/>
 		<div className="error-overlay">
 		<a href='/search' className='search-link'>
-					Exhibition error - Add more artwork to your gallery to view exhibition
+					Add more artwork to your gallery to view exhibition
 				</a>
 		</div>
 	  </div>
