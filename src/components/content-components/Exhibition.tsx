@@ -9,6 +9,7 @@ function Exhibition() {
 	const { galleryList } = useGallery()
 	const [exhibitionList, setExhibitionList] = useState<ArtList>(galleryList || bestOfAic)
 
+
 	const handleExhibitionChange = (e: ChangeEvent<HTMLSelectElement>) => {
 		const selectedValue = e.target.value
 
@@ -23,7 +24,7 @@ function Exhibition() {
 	return (
 		<>
 			<ExhibitionSummary handleExhibitionChange={handleExhibitionChange} />
-			<ExhibitionImages exhibitionList={exhibitionList}/>
+			<ExhibitionImages exhibitionList={exhibitionList} />
 		</>
 	)
 }

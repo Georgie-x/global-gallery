@@ -2,7 +2,7 @@ import Home from "./Home"
 import Search from "./Search"
 import Gallery from "./Gallery"
 import Exhibition from "./Exhibition"
-import Error from "./Error"
+import ErrorHandle from "./ErrorHandle"
 import SearchInput from "./SearchInput"
 import ResultsSummary from "./ResultsSummary"
 import ImageGrid from "./ImageGrid"
@@ -18,7 +18,7 @@ export {
 	Search,
 	Gallery,
 	Exhibition,
-	Error,
+	ErrorHandle,
 	SearchInput,
 	ResultsSummary,
 	ImageGrid,
