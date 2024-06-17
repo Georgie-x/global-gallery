@@ -1,5 +1,5 @@
 import { Routes, Route } from "react-router-dom"
-import { Home, Search, Gallery, Exhibition, Error } from "../content-components/index"
+import { Home, Search, Gallery, Exhibition, ErrorHandle } from "../content-components/index"
 
 function Content() {
 	return (
@@ -10,7 +10,7 @@ function Content() {
 				<Route path='/search' element={<Search />} />
 				<Route path='/gallery' element={<Gallery />} />
 				<Route path='/exhibition' element={<Exhibition />} />
-				<Route path='/*' element={<Error />} />
+				<Route path='/*' element={<ErrorHandle />} />
 			</Routes>
 		</main>
 	)

@@ -23,7 +23,7 @@ function Exhibition() {
 	}
 	return (
 		<>
-			<ExhibitionSummary handleExhibitionChange={handleExhibitionChange} />
+			<ExhibitionSummary handleExhibitionChange={handleExhibitionChange} exhibitionList={exhibitionList}/>
 			<ExhibitionImages exhibitionList={exhibitionList} />
 		</>
 	)

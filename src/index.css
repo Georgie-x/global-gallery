@@ -18,7 +18,6 @@
 	background-color: var(--primary-light);
 	color: var(--text);
 	font-size: 16px;
-	
 }
 * {
 	margin: 0;
@@ -379,6 +378,7 @@ a:hover {
 }
 .plaque {
 	grid-area: "plaque";
+	font-style: italic;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -403,6 +403,7 @@ figure {
 		"large-image"
 		"plaque";
 	grid-template-rows: 85% 15%;
+	position: relative;
 }
 
 figure img {
@@ -421,6 +422,42 @@ figcaption {
 	padding: 1.5rem;
 }
 
+.details-overlay {
+	grid-area: large-image;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: var(--banner);
+	overflow-y: scroll;
+}
+
+.error-container {
+	position: relative;
+	margin:0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	
+}
+
+.error-overlay {
+	position: absolute;
+	height: 100%;
+	width:100%;
+	margin: 0;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background-color: rgba(0, 0, 0, 0.5);
+	padding: 1rem;
+	
+}
+
+.error-overlay a {
+	color: white;
+}
 /* ACCESSIBILITY */
 
 .skip-to-content {
