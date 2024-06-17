@@ -1,7 +1,7 @@
 Georgina Rimmer - Tech Returners launchpad project - Exhibition Curation Website
 
 
-This project is hosted at: [https://global-gallery.netlify.app](https://global-gallery.netlify.app)
+This project is hosted at: https://global-gallery.netlify.app
 
 
 OR to run the project locally on your device:
@@ -38,6 +38,7 @@ Download and install Node.js and npm from https://nodejs.org/en/
 
 Download and install Git from https://git-scm.com/downloads
 
+
 2. CHOOSE PROJECT FOLDER
 
 The terminal displays the current folder path, here you can use the commands: 
@@ -50,6 +51,7 @@ The terminal displays the current folder path, here you can use the commands:
 
 'mkdir new-folder-name' to create a new folder
 
+
 3. OPEN PROJECT CODE
 
 Once you have navigated to the project folder you can use the commands: 
@@ -60,11 +62,13 @@ Once you have navigated to the project folder you can use the commands:
 
 'code .' to open a new window with the project code
 
+
 4. ADD SOFTWARE DEPENDENCIES
 
 In a new terminal in the project window type: 
 
 'npm install' to install additional required software
+
 
 5. PREPARE ENVIRONMENTAL VARIBLES
 
@@ -83,6 +87,7 @@ An "environmental varibles" file (.env) needs be added to ensure your API key is
 type 'touch .env'
 
 in the .env file add the line 'VITE_RIJKS_API_KEY=your-api-key'
+
 
 6. RUN PROJECT CODE
 
