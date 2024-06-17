@@ -1,7 +1,7 @@
 Georgina Rimmer - Tech Returners launchpad project - Exhibition Curation Website
 
 
-This project is hosted at: https://global-gallery.netlify.app/
+This project is hosted at: [https://global-gallery.netlify.app](https://global-gallery.netlify.app)
 
 
 OR to run the project locally on your device:
