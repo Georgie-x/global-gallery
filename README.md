@@ -40,11 +40,15 @@ Download and install Git from https://git-scm.com/downloads
 
 
 2. CHOOSE PROJECT FOLDER
+
 The terminal displays the current folder path, here you can use the commands: 
 
 'cd ..' to navigate up the folder structure
+
 'ls' to view contents of the current folder 
+
 'cd folder-name' to navigate to a specific folder
+
 'mkdir new-folder-name' to create a new folder
 
 
