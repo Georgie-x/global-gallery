@@ -34,7 +34,7 @@ function Home() {
 						id='collections'
 						onChange={handleCollectionChange}
 					>
-						<option value='aic'>Best of the Art Museum of Chicago</option>
+						<option value='aic'>Best of the Art Inst. of Chicago</option>
 						<option value='rijks'>Best of Rijksmuseum</option>
 					</select>
 				</div>

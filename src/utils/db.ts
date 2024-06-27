@@ -301,20 +301,6 @@ export const bestOfRijks: ArtList = [
 		more_info: undefined,
 	},
 	{
-		id: "SK-C-1367",
-		artist: "Piero di Cosimo",
-		image_url:
-			"https://lh3.googleusercontent.com/x9NFmu-RbZ_9M5BK_hOzQRdVj4pu7p--y_IYwDK46lDPzQtTIO9AlBV_ObgQiY7GeWE0ZfNjMSyrCWgnwL4MCasQZQ=s0",
-		alt_text: "Artwork image from Rijksmuseum",
-		title: "Portraits of Giuliano and Francesco Giamberti da Sangallo",
-		date: 1482,
-		medium: "oil on panel",
-		description:
-			"This diptych shows a leading Florentine architect, Giuliano da Sangallo with his late father Francesco, also an architect and a musician. These are early examples of portraits in which the subject’s profession plays a key role. Here a pen and dividers suggest architecture, a melody in note form suggests music; in both disciplines, harmony and proportion are essential. ",
-		origin: null,
-		more_info: undefined,
-	},
-	{
 		id: "SK-A-4050",
 		artist: "Rembrandt van Rijn",
 		image_url:

@@ -15,7 +15,7 @@
 	--big-gap: 2rem;
 	--mini-gap: 0.2rem;
 	--mega-gap: 5rem;
-	background-color: var(--primary-light);
+	background-color: var(--primary-medium);
 	color: var(--text);
 	font-size: 16px;
 }
